@@ -671,19 +671,19 @@ const Request = ({
           >
             * I acknowledge that I have read and understood{" "}
             <a href="#" className="text-primary font-bold underline">
-              Tridge Terms of Service
+              Trade4go Terms of Service
             </a>{" "}
             and{" "}
             <a href="#" className="text-primary font-bold underline">
               Privacy Policy
             </a>
-            , and I hereby grant my consent to Tridge to share my personal
-            information that I voluntarily provide to Tridge with third parties
+            , and I hereby grant my consent to Trade4go to share my personal
+            information that I voluntarily provide to Trade4go with third parties
             for the purpose of providing services such as offering products and
             services; sending information about potential business
             opportunities, products, or services; or disclosing contact
             information for communication with visitors or participants to
-            Social Marketplace and Tridge’s partners.
+            Social Marketplace and Trade4go’s partners.
           </label>
         </div>
       </div>

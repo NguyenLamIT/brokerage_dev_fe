@@ -69,7 +69,7 @@ const EmailPasswordForm = (props: any) => {
             <div className=" text-[1.25rem] px-16 w-full text-center text-[#081342]">
               <span className="hidden xs:inline text-[1.25rem]">
                 Built for trust, our platform allows verified businesses to get
-                exclusive access to advanced Tridge features and benefits.
+                exclusive access to advanced Trade4go features and benefits.
               </span>
             </div>
           </div>

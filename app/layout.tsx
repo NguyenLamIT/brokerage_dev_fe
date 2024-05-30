@@ -14,10 +14,10 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Tridge",
-    template: "%s - Tridge",
+    default: "Trade4go",
+    template: "%s - Trade4go",
   },
-  description: "Tridge",
+  description: "Trade4go",
 };
 
 export default async function RootLayout({

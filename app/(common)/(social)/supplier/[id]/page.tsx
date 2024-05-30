@@ -167,7 +167,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                 <div className="pb-20 flex flex-col gap-4">
                   <div className="text-3xl font-bold flex gap-5 items-center">
                     Verification Details{" "}
-                    <p className="text-sm font-bold">Validated by Tridge</p>
+                    <p className="text-sm font-bold">Validated by Trade4go</p>
                   </div>
                   <div className="flex">
                     <div className="ring-1 ring-gray-300 p-4 font-medium">
@@ -328,7 +328,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                           className="ring-1 ring-gray-300 rounded-md"
                         >
                           <div className="ring-1 ring-gray-300 text-2xl font-bold py-3 rounded-t-md text-[#404040] flex gap-4 px-6">
-                            {/* <Image src={'https://cdn-new.tridge.com/assets/OL3BIG2B.png'} alt="image" width={32} height={32} className="h-8 w-8" /> */}
+                            {/* <Image src={'https://cdn-new.Trade4go.com/assets/OL3BIG2B.png'} alt="image" width={32} height={32} className="h-8 w-8" /> */}
                             {certification["certificate"]?.name}
                           </div>
                           <table className="border-separate border-spacing-1 w-full px-6 py-6">

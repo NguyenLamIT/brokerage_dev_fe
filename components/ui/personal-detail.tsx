@@ -157,7 +157,7 @@ const PersonalDetail = () => {
           <span className="font-bold text-2xl leading-9 text-[#081342]">
             Role Setting
           </span>
-          <span className="text-sm">You are using Tridge as a</span>
+          <span className="text-sm">You are using Trade4go as a</span>
           <div className="flex w-64 justify-between items-center">
             <SwitchRole user={info} />
           </div>

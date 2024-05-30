@@ -19,7 +19,7 @@ const RFQ = () => {
         <div className='container'>
             <div className='flex gap-2 flex-col py-7'>
                 <p className='text-3xl font-bold text-[#081440]'>Pavilion</p>
-                <p className='text-[#081440]'>Explore premium suppliers and products from Tridge Pavilion.</p>
+                <p className='text-[#081440]'>Explore premium suppliers and products from Trade4go Pavilion.</p>
             </div>
             <div className='relative'>
                 <Image src={'/banner2.png'} alt='Jeollanamdo' width={1683} height={547} className='w-full object-cover h-[80vh] md:h-auto blur-sm' />

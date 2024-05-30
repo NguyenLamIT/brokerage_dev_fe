@@ -1242,15 +1242,15 @@ const CreateRFQ = (props: any) => {
                 onClick={() => (agree == 1 ? setAgree(0) : setAgree(1))}
               />
               <span>
-                * I acknowledge that I have read and understood Tridge Terms of
+                * I acknowledge that I have read and understood Trade4go Terms of
                 Service and Privacy Policy, and I hereby grant my consent to
-                Tridge to share my personal information that I voluntarily
-                provide to Tridge with third parties for the purpose of
+                Trade4go to share my personal information that I voluntarily
+                provide to Trade4go with third parties for the purpose of
                 providing services such as offering products and services;
                 sending information about potential business opportunities,
                 products, or services; or disclosing contact information for
                 communication with visitors or participants to Social
-                Marketplace and Tridge’s partners.
+                Marketplace and Trade4go’s partners.
               </span>
             </div>
           </div>

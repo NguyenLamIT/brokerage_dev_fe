@@ -656,7 +656,7 @@ const Data = () => {
 
                 <div className="flex flex-col gap-2">
                   <span className="text-xl font-semibold text-[#081342]">
-                    2. Search for Tridge email
+                    2. Search for Trade4go email
                   </span>
                   <img
                     src="/image35.png"

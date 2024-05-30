@@ -31,7 +31,7 @@ const Report = async (props: any) => {
     <div>
       <div className="relative">
         <Image
-          src={"https://cdn-new.tridge.com/assets/E4ELWIAT.png"}
+          src={"https://cdn-new.Trade4go.com/assets/E4ELWIAT.png"}
           alt="Jeollanamdo"
           width={1500}
           height={500}

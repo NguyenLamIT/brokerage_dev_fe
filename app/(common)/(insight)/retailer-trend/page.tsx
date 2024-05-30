@@ -32,7 +32,7 @@ const RetailerTrend = async (props: any) => {
       <div className="relative">
         <Image
           src={
-            "https://cdn-new.tridge.com/assets/XO5FGPVF.png"
+            "https://cdn-new.Trade4go.com/assets/XO5FGPVF.png"
           }
           alt="Jeollanamdo"
           width={1500}

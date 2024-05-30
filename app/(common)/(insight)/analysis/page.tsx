@@ -35,7 +35,7 @@ const Analysis = async (props: any) => {
           <p className="text-[2rem] font-bold text-[#081440]">Analysis</p>
           <p className="text-[#081440] font-normal">
             Current agricultural market trends and noteworthy events through
-            Tridge’s analytical lens
+            Trade4go’s analytical lens
           </p>
         </div>
         <div className="flex gap-[0.875rem] items-center">

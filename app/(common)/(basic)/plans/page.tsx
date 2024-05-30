@@ -27,8 +27,8 @@ const Page = async () => {
               <div className="text-black text-3xl font-bold">Basic plan</div>
               <div className="text-2xl text-black text-justify">
                 You have only basic access to content, data, and features on
-                Tridge.com at the moment. Upgrade your plan to get more benefits
-                from Tridge.
+                Trade4go.com at the moment. Upgrade your plan to get more benefits
+                from Trade4go.
               </div>
               {/* <div className="text-end">
                 <Button className="text-base !px-[28px]">Upgrade Plan</Button>

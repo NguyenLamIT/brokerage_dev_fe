@@ -105,7 +105,7 @@ const BuyerDetail = async ({ params, searchParams }: any) => {
                 <div className="pb-20 flex flex-col gap-4">
                   <div className="text-3xl font-bold flex gap-5 items-center">
                     Verification Details{" "}
-                    <p className="text-sm font-bold">Validated by Tridge</p>
+                    <p className="text-sm font-bold">Validated by Trade4go</p>
                   </div>
                   <div className="flex">
                     <div className="ring-1 ring-gray-300 p-4">
@@ -151,7 +151,7 @@ const BuyerDetail = async ({ params, searchParams }: any) => {
                     </Link>
                   </div>
                   <p>
-                    Check out the products Tridge Fulfillment Buyer is looking
+                    Check out the products Trade4go Fulfillment Buyer is looking
                     to source for.
                   </p>
                   {suggest_product_list.slice(0, 5).map((pd: any) => (

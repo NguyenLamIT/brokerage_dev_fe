@@ -36,7 +36,7 @@ const Search = async (props: any) => {
         <div className="flex-col gap-3 col-span-2 sticky h-64 p-4 rounded-lg border border-gray-200 bg-white top-24 mt-8 hidden md:flex">
           <div className="flex flex-col justify-center items-center gap-3">
             <p className="font-medium">
-              Sign in or join Tridge to fully utilize our Social Marketplace.
+              Sign in or join Trade4go to fully utilize our Social Marketplace.
             </p>
             <Button className="w-full">
               <Link href={"/api/auth/signin"}>Sign in</Link>

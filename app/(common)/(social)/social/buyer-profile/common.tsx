@@ -80,7 +80,7 @@ const Common = ({ user }: any) => {
             <a href="#" className="underline">
               business documents
             </a>{" "}
-            or sign in with a Tridge-verified work email.
+            or sign in with a Trade4go-verified work email.
           </li>
           <li>
             Add your{" "}

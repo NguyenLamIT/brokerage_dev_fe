@@ -77,7 +77,7 @@ const Social = async (props: any) => {
               <div className="flex-col gap-3 p-4 rounded-lg border border-gray-200 bg-white m-0">
                 <div className="flex flex-col justify-center items-center gap-3">
                   <p className="font-medium">
-                    Sign in or join Tridge to fully utilize our Social
+                    Sign in or join Trade4go to fully utilize our Social
                     Marketplace.
                   </p>
                   <Link href={"/signin"} className="w-full">

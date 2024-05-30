@@ -56,7 +56,7 @@ const Company = () => {
         </div>
       </div>
       <div className="text-[16px] leading-[24px] italic text-[#939AA1]">
-        Get full advantage of Tridge services as a verified business.
+        Get full advantage of Trade4go services as a verified business.
       </div>
       <div className="w-full">
         <VerifyEmail />

@@ -15,19 +15,19 @@ const Data = () => {
     {
       title: "Transactional Emails",
       description:
-        "Receive transactional emails related to your activities on Tridge.",
+        "Receive transactional emails related to your activities on Trade4go.",
       isChecked: false,
     },
     {
       title: "Reminder Emails",
       description:
-        "Receive reminder emails related to things that need your attention on Tridge.",
+        "Receive reminder emails related to things that need your attention on Trade4go.",
       isChecked: false,
     },
   ]);
   const [listCheckNewsletter, setListCheckNewsletter] = useState([
     {
-      title: "Tridge Daily Market Digest",
+      title: "Trade4go Daily Market Digest",
       description:
         "Receive customized digest emails with media contents curated by your following product preferences.",
       isChecked: false,
