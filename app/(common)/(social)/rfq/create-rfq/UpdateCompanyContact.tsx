@@ -257,13 +257,13 @@ const UpdateCompanyContact = (props: any) => {
       }).catch(err => toast({
         variant: "destructive",
         title: "Fail!",
-        description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
+        description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data)[0][0]:JSON.parse(err.request.response).message):"Something went wrong!",
         action: <ToastAction altText="Try again">Again</ToastAction>,
       })).finally(() =>setLSave(false));
     }).catch(err => toast({
       variant: "destructive",
       title: "Fail!",
-      description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
+      description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data)[0][0]:JSON.parse(err.request.response).message):"Something went wrong!",
       action: <ToastAction altText="Try again">Again</ToastAction>,
     })).finally(() =>setLSave(false));
   };
