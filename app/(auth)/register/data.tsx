@@ -300,7 +300,12 @@ const Data = () => {
         setToken(data?.data.access_token);
         setRegisterLoading(false);
       }
-    });
+    }).catch(err => toast({
+      variant: "destructive",
+      title: "Fail!",
+      description: JSON.parse(err.request.response).message,
+      action: <ToastAction altText="Try again">Again</ToastAction>,
+    }));
     return;
   };
   const resendEmail = () => {

@@ -165,8 +165,8 @@ const EditProduct = ({ code, setReload }: any) => {
       .catch((err) => {
         toast({
           variant: "destructive",
-          title: "Fail",
-          description: "Update Product",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
         });
       })
       .finally(() => setLoading(false));

@@ -90,8 +90,8 @@ const AddProduct = ({ setReload }: any) => {
       .catch((err) => {
         toast({
           variant: "destructive",
-          title: "Fail",
-          description: "Create Product",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
         });
       })
       .finally(() => setLoading(false));

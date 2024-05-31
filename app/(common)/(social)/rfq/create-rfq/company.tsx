@@ -95,6 +95,12 @@ const CompanyInformation = ({
           description: "Update Company Infomation Successfully",
         });
       }
+    }).catch((err) => {
+      toast({
+        variant: "destructive",
+        title: "Submit Quote Error",
+        description: JSON.parse(err.request.response).message,
+      });
     });
   };
   const getListYear = () => {

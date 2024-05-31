@@ -119,11 +119,11 @@ const SubmitQuote = (props: any) => {
           });
         }
       })
-      .catch(() => {
+      .catch((err) => {
         toast({
           variant: "destructive",
           title: "Submit Quote Error",
-          description: "Friday, February 10, 2023 at 5:57 PM",
+          description: JSON.parse(err.request.response).message,
         });
       })
       .finally(() => {

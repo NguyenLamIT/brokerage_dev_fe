@@ -74,11 +74,11 @@ const VerifyEmail = () => {
           });
         }
       })
-      .catch(() => {
+      .catch((err) => {
         toast({
           variant: "destructive",
           title: "Fail",
-          description: "Somethings went wrong",
+          description: JSON.parse(err.request.response).message,
           duration: 2000,
         });
       });

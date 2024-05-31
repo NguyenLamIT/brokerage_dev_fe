@@ -1,11 +1,15 @@
 'use client'
 import { useState, useRef } from "react";
 import { postRequestWithFormData } from "@/hook/apiClient";
+import { useToast } from "./use-toast";
+
 
 const DragDropVideo = ({ img, setImg, multiple, setURLVideo }: any) => {
   const [loading, setLoading] = useState(false);
   const uploadFileRef = useRef<HTMLInputElement>(null);
   const [url, setURL] = useState(); 
+  const { toast } = useToast();
+
 
   const changeFile = (event: any) => {
     setLoading(true);
@@ -20,7 +24,13 @@ const DragDropVideo = ({ img, setImg, multiple, setURLVideo }: any) => {
         setURL(data?.data[0].file_url);
         setURLVideo(data?.data[0].file_url.replace("temp_file", "media"));
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        toast({
+          variant: "destructive",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
+        });
+      })
       .finally(() => setLoading(false));
   };
 
@@ -41,7 +51,13 @@ const DragDropVideo = ({ img, setImg, multiple, setURLVideo }: any) => {
         setURL(data?.data[0].file_url);
         setURLVideo(data?.data[0].file_url);
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        toast({
+          variant: "destructive",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
+        });
+      })
       .finally(() => setLoading(false));
   };
 

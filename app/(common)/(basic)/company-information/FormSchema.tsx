@@ -296,8 +296,8 @@ const FormSchema = (props: any) => {
       .catch((err) => {
         toast({
           variant: "destructive",
-          title: "Success!",
-          description: "Update success",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
           action: <ToastAction altText="Try again">Done</ToastAction>,
         });
         setLsave(false);
@@ -331,11 +331,11 @@ const FormSchema = (props: any) => {
           });
         }
       })
-      .catch(() => {
+      .catch((err) => {
         toast({
           variant: "destructive",
           title: "Fail",
-          description: "Somethings went wrong",
+          description: JSON.parse(err.request.response).message,
         });
         setBtnLoading(false);
       });

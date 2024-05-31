@@ -32,10 +32,11 @@ const Follow = ({ code, followers, products, user, type }: any) => {
           });
           setFl((prev: any) => prev.filter((p: any) => p.code != user?.code))
         })
-        .catch(() => {
+        .catch((err) => {
           toast({
             variant: "destructive",
-            title: "Fail",
+            title: "Fail!",
+            description: JSON.parse(err.request.response).message,
           });
         })
         .finally(() => setLoading(false));
@@ -52,10 +53,11 @@ const Follow = ({ code, followers, products, user, type }: any) => {
           });
           setFl((prev: any) => [...prev, { code: user?.code }])
         })
-        .catch(() => {
+        .catch((err) => {
           toast({
             variant: "destructive",
-            title: "Fail",
+            title: "Fail!",
+            description: JSON.parse(err.request.response).message,
           });
         })
         .finally(() => setLoading(false));

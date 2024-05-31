@@ -151,7 +151,12 @@ const FormSchema = (props: any) => {
                 action: <ToastAction altText="Try again">Done</ToastAction>,
               });
             }
-          });
+          }).catch(err => toast({
+            variant: "destructive",
+            title: "Fail!",
+            description: JSON.parse(err.request.response).message,
+            action: <ToastAction altText="Try again">Again</ToastAction>,
+          }));
           return;
         } else {
           toast({
@@ -164,7 +169,7 @@ const FormSchema = (props: any) => {
       }
       setLsave(false);
       // return setData(data);
-    });
+    }).finally(() => setLsave(false));
   };
   return (
     <Form {...form}>

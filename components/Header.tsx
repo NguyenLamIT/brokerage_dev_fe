@@ -46,7 +46,7 @@ const Header = async () => {
               <SheetClose asChild>
                 <Link href={"/"} className="w-full">
                   <Image
-                    src={"/logo.png"}
+                    src={"/trade4go.png"}
                     alt="logo"
                     width={128}
                     height={56}

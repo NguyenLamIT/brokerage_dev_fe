@@ -1,5 +1,6 @@
 "use client";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/components/ui/use-toast";
 import { postRequest } from "@/hook/apiClient";
 import { Loader2 } from "lucide-react";
 import Image from "next/image";
@@ -8,6 +9,7 @@ import React, { useState } from "react";
 const SendMessenger = ({ user, code, setComment }: any) => {
   const [mess, setMess] = useState<any>("");
   const [loading, setLoading] = useState(false);
+  const { toast } = useToast();
   const actionComment = () => {
     setLoading(true);
     postRequest("/post/update", {
@@ -25,7 +27,13 @@ const SendMessenger = ({ user, code, setComment }: any) => {
           },
         ]);
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        toast({
+          variant: "destructive",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
+        });
+      })
       .finally(() => {
         setMess("");
         setLoading(false);

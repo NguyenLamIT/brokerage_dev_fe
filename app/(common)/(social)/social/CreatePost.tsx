@@ -77,11 +77,11 @@ const CreatePost = ({ user }: any) => {
           });
         }
       })
-      .catch(() => {
+      .catch((err) => {
         toast({
           variant: "destructive",
           title: "Fail",
-          description: "Please fill in all required fields.",
+          description: JSON.parse(err.request.response).message,
         });
       })
       .finally(() => {

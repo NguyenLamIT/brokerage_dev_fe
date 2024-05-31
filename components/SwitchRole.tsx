@@ -55,6 +55,12 @@ const SwitchRole = (props: any) => {
         }, 500);
         return setInfo(data.data);
       }
+    }).catch((err) => {
+      toast({
+        variant: "destructive",
+        title: "Fail!",
+        description: JSON.parse(err.request.response).message,
+      });
     });
   };
   return (

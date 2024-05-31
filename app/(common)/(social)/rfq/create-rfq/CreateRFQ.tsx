@@ -276,7 +276,7 @@ const CreateRFQ = (props: any) => {
         toast({
           variant: "destructive",
           title: "FAIL!",
-          description: err.response.data,
+          description: JSON.parse(err.request.response).message,
           action: <ToastAction altText="Try again">Again</ToastAction>,
         });
       })
@@ -318,7 +318,12 @@ const CreateRFQ = (props: any) => {
                   });
                 }
               }
-            );
+            ).catch(err => toast({
+              variant: "destructive",
+              title: "Fail!",
+              description: JSON.parse(err.request.response).message,
+              action: <ToastAction altText="Try again">Again</ToastAction>,
+            }));
           } else {
             saveRFQ(values, null);
           }

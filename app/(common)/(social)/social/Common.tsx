@@ -19,6 +19,7 @@ import Action from "./Action";
 import SendMessenger from "./SendMessenger";
 import Comment from "./Comment";
 import { postRequest } from "@/hook/apiClient";
+import { useToast } from "@/components/ui/use-toast";
 
 const Common = ({ dt, user }: any) => {
   const [like, setLike] = useState(dt?.like);
@@ -27,6 +28,7 @@ const Common = ({ dt, user }: any) => {
   );
   const [comment, setComment] = useState(dt?.comment_list);
   const [view, setViews] = useState(dt?.view);
+  const { toast } = useToast();
   const handleClick = () => {
     if (user) {
       postRequest("/post/update", {
@@ -35,6 +37,12 @@ const Common = ({ dt, user }: any) => {
         user_role: user.role,
       }).then(() => {
         setViews((prev: any) => prev + 1);
+      }).catch((err) => {
+        toast({
+          variant: "destructive",
+          title: "Submit Quote Error",
+          description: JSON.parse(err.request.response).message,
+        });
       });
     }
   };

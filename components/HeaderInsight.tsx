@@ -43,7 +43,7 @@ const HeaderInsight = async () => {
               <SheetClose asChild>
                 <Link href={"/"}>
                   <Image
-                    src={"/logo.png"}
+                    src={"/trade4go.png"}
                     alt="logo"
                     width={128}
                     height={56}
@@ -161,7 +161,7 @@ const HeaderInsight = async () => {
         <div className=" gap-4 items-center w-96 hidden md:flex">
           <Link href={"/"}>
             <Image
-              src={"/logo.png"}
+              src={"/trade4go.png"}
               alt="logo"
               width={128}
               height={56}
@@ -171,7 +171,7 @@ const HeaderInsight = async () => {
         </div>
         <Link href={"/"} className="pl-4 w-full block md:hidden">
           <Image
-            src={"/logo.png"}
+            src={"/trade4go.png"}
             alt="logo"
             width={128}
             height={56}

@@ -51,11 +51,11 @@ const DragDropFile = ({ type, fileName }: any) => {
           });
         }
       })
-      .catch(() => {
+      .catch((err) => {
         toast({
           variant: "destructive",
-          title: "Fail",
-          description: "Somethings went wrong",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
         });
       });
   };
@@ -79,11 +79,11 @@ const DragDropFile = ({ type, fileName }: any) => {
           });
         }
       })
-      .catch(() => {
+      .catch((err) => {
         toast({
           variant: "destructive",
-          title: "Fail",
-          description: "Somethings went wrong",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
         });
       });
   };
@@ -112,11 +112,11 @@ const DragDropFile = ({ type, fileName }: any) => {
           });
         }
       })
-      .catch(() => {
+      .catch((err) => {
         toast({
           variant: "destructive",
-          title: "Fail",
-          description: "Somethings went wrong",
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
         });
       });
   };

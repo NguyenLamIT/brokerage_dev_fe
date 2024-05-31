@@ -27,7 +27,13 @@ const Action = ({
         setIsLike(newLike);
         setNumLike((prevNumLike: any) => prevNumLike + likeChange);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast({
+          variant: "destructive",
+          title: "Submit Quote Error",
+          description: JSON.parse(err.request.response).message,
+        });
+      })
   };
   const { toast } = useToast();
   return (
@@ -99,8 +105,12 @@ const Action = ({
               title: "Success",
               description: "Copy link post",
             })
-          }).catch(err => {
-            console.error('Không thể sao chép: ', err);
+          }).catch((err) => {
+            toast({
+              variant: "destructive",
+              title: "Submit Quote Error",
+              description: JSON.parse(err.request.response).message,
+            });
           });
         }}>
           <div className="flex gap-1 items-center">

@@ -61,8 +61,8 @@ const DeleteWhyUs = (props: any) => {
       .catch((err) => {
         toast({
           variant: "destructive",
-          title: "Fail",
-          description: JSON.stringify(err),
+          title: "Fail!",
+          description: JSON.parse(err.request.response).message,
         });
       })
       .finally(() => setLoading(false));

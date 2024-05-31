@@ -1,30 +1,48 @@
-'use client'
-import { Button } from '@/components/ui/button';
-import { useToast } from '@/components/ui/use-toast';
-import { postRequest } from '@/hook/apiClient';
-import React from 'react'
+"use client";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import { postRequest } from "@/hook/apiClient";
+import React from "react";
 
 const ButtonShare = ({ dt, user }: any) => {
-    const { toast } = useToast();
+  const { toast } = useToast();
 
-    return (
-        <div onClick={() => {
-            navigator.clipboard.writeText(window.location.origin + '/social/' + dt.content.split(' ').slice(0,20).join('-') + "-i." + dt.code).then(() => {
-                postRequest("/post/update", {
-                    code: dt.code,
-                    share: 1,
-                    user_role: user.role,
-                })
-                toast({
-                    variant: "success",
-                    title: "Success",
-                    description: "Copy link post",
-                })
-            }).catch(err => {
-                console.error('Không thể sao chép: ', err);
+  return (
+    <div
+      onClick={() => {
+        navigator.clipboard
+          .writeText(
+            window.location.origin +
+              "/social/" +
+              dt.content.split(" ").slice(0, 20).join("-") +
+              "-i." +
+              dt.code
+          )
+          .then(() => {
+            postRequest("/post/update", {
+              code: dt.code,
+              share: 1,
+              user_role: user.role,
             });
-        }} className="w-full cursor-pointer">Copy link</div>
-    )
-}
+            toast({
+              variant: "success",
+              title: "Success",
+              description: "Copy link post",
+            });
+          })
+          .catch((err) => {
+            toast({
+              variant: "destructive",
+              title: "Submit Quote Error",
+              description: JSON.parse(err.request.response).message,
+            });
+          });
+      }}
+      className="w-full cursor-pointer"
+    >
+      Copy link
+    </div>
+  );
+};
 
-export default ButtonShare
+export default ButtonShare;

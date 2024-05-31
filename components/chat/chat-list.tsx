@@ -9,6 +9,8 @@ import { formatDistanceToNow } from "date-fns";
 import { enAU } from "date-fns/locale";
 import { getRequest, postRequest } from "@/hook/apiClient";
 import Loading from "../Loading";
+import { useToast } from "../ui/use-toast";
+
 
 export function ChatList({
   messages,
@@ -20,6 +22,8 @@ export function ChatList({
 }: any) {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(false)
+  const { toast } = useToast();
+
   React.useEffect(() => {
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop =
@@ -51,7 +55,13 @@ export function ChatList({
           if (ids.length > 0) {
             postRequest('/chat/update-read-msg', {
               ids: ids
-            })
+            }).catch((err) => {
+              toast({
+                variant: "destructive",
+                title: "Fail!",
+                description: JSON.parse(err.request.response).message,
+              });
+            });
           }
           setMessages(dt)
           setCount((prev: any) => prev - 1)

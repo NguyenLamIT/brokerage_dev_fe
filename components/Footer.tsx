@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className='bg-[#081342]'>
       <div className='container grid grid-cols-1 md:grid-cols-3 items-center gap-16 py-9'>
-        <Image src={'/logo2.png'} alt='logo' width={191} height={72} />
+        <Image src={'/trade4go.png'} alt='logo' width={191} height={72} />
         <div className='flex flex-col gap-4 pt-5 col-span-2'>
           <div className='flex flex-col md:flex-row gap-16 text-white font-bold'>
             <p>Data & Analytics</p>
