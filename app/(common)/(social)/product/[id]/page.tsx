@@ -68,7 +68,9 @@ const ProductDetail = async ({ params }: any) => {
       <div className="text-4xl pb-9 font-bold text-[#081440] flex gap-2 items-center">
         <Back /> Products
       </div>
-      <ListImage images={product.galleries} />
+      <div className={`${product.galleries?.length==1?"flex justify-center w-full aspect-[3/1]":""}`}>
+        <ListImage images={product.galleries} />
+      </div>
       <div className="grid grid-cols-1  md:grid-cols-5 gap-14 relative pt-7 border-b border-gray-300  ">
         <div className="col-span-3 flex flex-col gap-10">
           <p className="text-4xl text-[#4A4A4A] font-bold">{product.name}</p>

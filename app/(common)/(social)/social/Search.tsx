@@ -77,11 +77,13 @@ const SocialMarketplaceSearch: React.FC = () => {
   const route = useRouter();
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    setData([])
-    setLoading(true)
-    getRequest(`/product/list-category-level-3?keyword=${keyword}&page=1&limit=15`)
+    setData([]);
+    setLoading(true);
+    getRequest(
+      `/product/list-category-level-3?keyword=${keyword}&page=1&limit=15`
+    )
       .then((data) => {
-        setLoading(false)
+        setLoading(false);
         setData(() => {
           const newData: any = [];
           data?.data.forEach((element: any) => {
@@ -99,8 +101,6 @@ const SocialMarketplaceSearch: React.FC = () => {
       })
       .catch((err) => console.log(err));
   }, [select, keyword]);
-
-
 
   const toggleCommandList = () => {
     setIsOpen(true);
@@ -121,24 +121,24 @@ const SocialMarketplaceSearch: React.FC = () => {
         <div className="bg-transparent w-full relative ">
           <div className="flex gap-2">
             <Select
-            onValueChange={(e) => setSelect(e)}
-            value={select}
-            defaultValue="ALL"
-          >
-            <SelectTrigger className="w-44 border-b px-7 py-3 bg-gray-100 rounded-2xl h-14 text-lg">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectGroup>
-                <SelectItem value="ALL">All</SelectItem>
-                <SelectItem value="PRODUCT">Products</SelectItem>
-                <SelectItem value="Suppliers">Suppliers</SelectItem>
-                <SelectItem value="BUYER">Buyers</SelectItem>
-                <SelectItem value="SUPPLIER">RFQs</SelectItem>
-                <SelectItem value="POST">Posts</SelectItem>
-              </SelectGroup>
-            </SelectContent>
-          </Select>
+              onValueChange={(e) => setSelect(e)}
+              value={select}
+              defaultValue="ALL"
+            >
+              <SelectTrigger className="w-44 border-b px-7 py-3 bg-gray-100 rounded-2xl h-14 text-lg">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="ALL">All</SelectItem>
+                  <SelectItem value="PRODUCT">Products</SelectItem>
+                  <SelectItem value="Suppliers">Suppliers</SelectItem>
+                  <SelectItem value="BUYER">Buyers</SelectItem>
+                  <SelectItem value="SUPPLIER">RFQs</SelectItem>
+                  {/* <SelectItem value="POST">Posts</SelectItem> */}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
             <div className="w-full relative">
               <Input
                 type="text"
@@ -147,13 +147,19 @@ const SocialMarketplaceSearch: React.FC = () => {
                 onClick={toggleCommandList}
                 onChange={(e) => setKeyword(e.target.value)}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter") route.push("/search?keyword=" + keyword);
+                  if (e.key === "Enter")
+                    route.push(
+                      select === "ALL"
+                        ? "/search?keyword=" + keyword
+                        : select.toLowerCase() + "?keyword=" + keyword
+                    );
                 }}
                 startIcon={() => <Search className="h-5 w-5" />}
               />
               <div
-                className={`absolute z-10 w-full bg-white top-16 list-none p-4 rounded-md shadow-md ${isOpen ? "" : "hidden"
-                  }`}
+                className={`absolute z-10 w-full bg-white top-16 list-none p-4 rounded-md shadow-md ${
+                  isOpen ? "" : "hidden"
+                }`}
               >
                 <div
                   className="flex flex-col h-[40vh] overflow-auto"

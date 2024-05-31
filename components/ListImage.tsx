@@ -26,7 +26,7 @@ export const RenderImageVdieo = ({ url, isVideo }: any) => {
       alt={"image"}
       width={600}
       height={300}
-      className="w-full h-full aspect-square object-cover"
+      className="w-full h-full aspect-square object-contain"
     />
   );
 };
@@ -35,13 +35,13 @@ const ListImage = ({ images, types }: any) => {
   return (
     <div>
       {images.length == 1 ? (
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 w-full h-full">
           {images.map((img: any, index: any) => (
-            <RenderImageVdieo
-              key={index}
-              url={img}
-              isVideo={types ? types[index] == "video" : isVideoUrl(img)}
-            />
+              <RenderImageVdieo
+                key={index}
+                url={img}
+                isVideo={types ? types[index] == "video" : isVideoUrl(img)}
+              />
           ))}
         </div>
       ) : images.length == 2 ? (

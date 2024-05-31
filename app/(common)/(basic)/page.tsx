@@ -135,7 +135,7 @@ const Home = async () => {
                         className="lg:basis-1/3 cursor-pointer"
                       >
                         <Link
-                          href={data.title_slug}
+                          href={`/${data?.content_type.split('_').join('-').toLowerCase()}/` + data?.title_slug}
                           className="p-4"
                           target="_blank"
                         >
@@ -173,7 +173,7 @@ const Home = async () => {
                 {trending.map((data: any) => (
                   <Link
                     target="_blank"
-                    href={data.title_slug}
+                    href={`/${data?.content_type.split('_').join('-').toLowerCase()}/` + data?.title_slug}
                     className="flex flex-col gap-4 cursor-pointer p-4 border border-gray-200 rounded-lg"
                     key={data.title_slug}
                   >

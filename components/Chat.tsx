@@ -131,6 +131,7 @@ export default function MessageList() {
                     setDataMess((prev: any) => [{ code: user_mess?.code, name: user_mess?.last_name, avatar: user_mess?.avatar, chat: [] }, ...prev])
                 }
             }
+            localStorage.removeItem("user-mess")
             if (!openMenu) {
                 setOpen(true)
             }
