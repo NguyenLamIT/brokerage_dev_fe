@@ -113,7 +113,7 @@ const VerifyEmail = () => {
         </div>
         <Label>Work email</Label>
         <Input
-          placeholder="Ex: jane.doe@Trade4go.com"
+          placeholder="Ex: jane.doe@trade4go.com"
           type="text"
           className="border-black border h-16"
           value={email}
@@ -132,7 +132,7 @@ const VerifyEmail = () => {
                     <FormLabel>Work email</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Ex: jane.doe@Trade4go.com"
+                        placeholder="Ex: jane.doe@trade4go.com"
                         type="text"
                         {...field}
                         className="border-black border h-16"
