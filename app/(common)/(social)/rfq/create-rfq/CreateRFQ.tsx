@@ -276,7 +276,7 @@ const CreateRFQ = (props: any) => {
         toast({
           variant: "destructive",
           title: "FAIL!",
-          description: JSON.parse(err.request.response).message,
+          description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
           action: <ToastAction altText="Try again">Again</ToastAction>,
         });
       })
@@ -321,7 +321,7 @@ const CreateRFQ = (props: any) => {
             ).catch(err => toast({
               variant: "destructive",
               title: "Fail!",
-              description: JSON.parse(err.request.response).message,
+              description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
               action: <ToastAction altText="Try again">Again</ToastAction>,
             }));
           } else {

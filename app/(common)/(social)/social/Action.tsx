@@ -31,7 +31,7 @@ const Action = ({
         toast({
           variant: "destructive",
           title: "Submit Quote Error",
-          description: JSON.parse(err.request.response).message,
+          description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
         });
       })
   };
@@ -109,7 +109,7 @@ const Action = ({
             toast({
               variant: "destructive",
               title: "Submit Quote Error",
-              description: JSON.parse(err.request.response).message,
+              description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
             });
           });
         }}>

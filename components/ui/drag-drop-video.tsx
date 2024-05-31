@@ -28,7 +28,7 @@ const DragDropVideo = ({ img, setImg, multiple, setURLVideo }: any) => {
         toast({
           variant: "destructive",
           title: "Fail!",
-          description: JSON.parse(err.request.response).message,
+          description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
         });
       })
       .finally(() => setLoading(false));
@@ -55,7 +55,7 @@ const DragDropVideo = ({ img, setImg, multiple, setURLVideo }: any) => {
         toast({
           variant: "destructive",
           title: "Fail!",
-          description: JSON.parse(err.request.response).message,
+          description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
         });
       })
       .finally(() => setLoading(false));

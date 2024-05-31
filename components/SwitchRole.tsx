@@ -59,7 +59,7 @@ const SwitchRole = (props: any) => {
       toast({
         variant: "destructive",
         title: "Fail!",
-        description: JSON.parse(err.request.response).message,
+        description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
       });
     });
   };

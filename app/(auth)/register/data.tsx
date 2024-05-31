@@ -303,7 +303,7 @@ const Data = () => {
     }).catch(err => toast({
       variant: "destructive",
       title: "Fail!",
-      description: JSON.parse(err.request.response).message,
+      description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
       action: <ToastAction altText="Try again">Again</ToastAction>,
     }));
     return;

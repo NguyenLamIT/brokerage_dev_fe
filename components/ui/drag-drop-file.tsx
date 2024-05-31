@@ -55,7 +55,7 @@ const DragDropFile = ({ type, fileName }: any) => {
         toast({
           variant: "destructive",
           title: "Fail!",
-          description: JSON.parse(err.request.response).message,
+          description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
         });
       });
   };
@@ -83,7 +83,7 @@ const DragDropFile = ({ type, fileName }: any) => {
         toast({
           variant: "destructive",
           title: "Fail!",
-          description: JSON.parse(err.request.response).message,
+          description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
         });
       });
   };
@@ -116,7 +116,7 @@ const DragDropFile = ({ type, fileName }: any) => {
         toast({
           variant: "destructive",
           title: "Fail!",
-          description: JSON.parse(err.request.response).message,
+          description: JSON.parse(err.request.response).message?JSON.parse(err.request.response).message:"Something went wrong!",
         });
       });
   };
