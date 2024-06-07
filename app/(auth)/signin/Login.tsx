@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import LoginGoogle from "./LoginGoogle";
 
 const Login = (props: any) => {
   const [email, setEmail] = useState("");
@@ -107,17 +108,7 @@ const Login = (props: any) => {
               Or
             </div>
             <div className="flex gap-1 flex-nowrap">
-              <button className="w-full bg-white xl:bg-none border border-[#939aa1] h-14 flex justify-center items-center rounded-[6px] py-2">
-                <div className="w-[2.5rem]">
-                  <Image
-                    src="/images/plan/google.svg"
-                    width={38}
-                    height={38}
-                    alt=""
-                    layout="responsive"
-                  ></Image>
-                </div>
-              </button>
+              <LoginGoogle />
               <button className="w-full bg-[#0866FF] border border-[#939aa1] h-14 flex justify-center items-center rounded-[6px] py-2">
                 <div className="w-[2.5rem]">
                   <Image

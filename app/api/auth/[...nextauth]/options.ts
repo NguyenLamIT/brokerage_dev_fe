@@ -51,7 +51,11 @@ export const options: NextAuthOptions = {
           token.avatar = session.avatar;
         }
         if (session?.user) {
-          token =  {...token, ...session.user};
+          token = { ...token, ...session.user };
+        }
+        if (session?.create) {
+          token = session.create;
+          return { ...user, ...token };
         }
         return { ...user, ...token };
       }
