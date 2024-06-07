@@ -12,7 +12,7 @@ const Google = () => {
         const queryParams = new URLSearchParams(params.toString())
         const queryString = queryParams.toString()
         console.log(queryString)
-        getRequest(`/api/auth/google/callback?${queryString}`)
+        getRequest(`/auth/google/callback?${queryString}`)
             .then(data => {
                 update({ create: data })
                     .then(() => redirect('/'))
