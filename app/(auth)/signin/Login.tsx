@@ -38,15 +38,9 @@ const Login = (props: any) => {
         <div className="">
           <div className="mb-8">
             <div className="flex flex-col xl:flex-row items-center">
-              <div className="text-primary text-4xl font-bold">Welcome to</div>
-              <Image
-                alt=""
-                src="/images/login/logo.png"
-                width={300}
-                height={100}
-              ></Image>
+              <div className="text-primary text-4xl font-bold">Welcome to TRADE4GO</div>
             </div>
-            <div className="text-primary text-xl -translate-y-4 text-center xl:text-start">
+            <div className="text-primary text-xl -translate-y-4 text-center xl:text-start pt-4">
               Connect with a trusted global network of agri professionals with
               us.
             </div>
