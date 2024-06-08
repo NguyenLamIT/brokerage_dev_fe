@@ -51,6 +51,25 @@ export const options: NextAuthOptions = {
           }
           return null;
         }
+        if(credentials.type == "facebook"){ 
+          const res = await fetch(
+            process.env.NEXT_PUBLIC_BASE_URL + `/auth/facebook/callback?${credentials?.params}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const data = await res.json();
+          if (res.ok) {
+            const { access_token, token_type, user } = data;
+            const token = { access_token, token_type };
+  
+            return { ...user, ...token };
+          }
+          return null;
+        }
         const res = await fetch(
           process.env.NEXT_PUBLIC_BASE_URL + "/auth/login",
           {

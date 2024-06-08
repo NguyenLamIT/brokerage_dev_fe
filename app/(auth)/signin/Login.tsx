@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LoginGoogle from "./LoginGoogle";
+import LoginFacebook from "./LoginFacebook";
 
 const Login = (props: any) => {
   const [email, setEmail] = useState("");
@@ -103,17 +104,8 @@ const Login = (props: any) => {
             </div>
             <div className="flex gap-1 flex-nowrap">
               <LoginGoogle />
-              <button className="w-full bg-[#0866FF] border border-[#939aa1] h-14 flex justify-center items-center rounded-[6px] py-2">
-                <div className="w-[2.5rem]">
-                  <Image
-                    src="/images/plan/facebook-white.svg"
-                    width={38}
-                    height={38}
-                    alt=""
-                  ></Image>
-                </div>
-              </button>
-              <button className="w-full bg-[#0A66C2] border border-[#939aa1] h-14 flex justify-center items-center rounded-[6px] py-2">
+              <LoginFacebook />
+              {/* <button className="w-full bg-[#0A66C2] border border-[#939aa1] h-14 flex justify-center items-center rounded-[6px] py-2">
                 <div className="w-[2.5rem]">
                   <Image
                     src="/images/plan/linkedIn-white.svg"
@@ -122,7 +114,7 @@ const Login = (props: any) => {
                     alt=""
                   ></Image>
                 </div>
-              </button>
+              </button> */}
             </div>
           </div>
           <div className="text-primary text-xl text-center">
