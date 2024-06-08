@@ -20,7 +20,7 @@ const LoadMore = ({ length, total }: any) => {
         setLoading(true);
         getRequest("/insight/analisys?total_page=12" + "&page=" + page + "&category_code=" + search + "&keyword=" + keyword)
             .then((data) => {
-                setData((prev: any) => [...prev, ...data?.data]);
+                setData((prev: any) => [...prev, ...data?.data?.data]);
                 setPage((prev) => prev + 1);
             })
             .catch((err) => console.log(err))

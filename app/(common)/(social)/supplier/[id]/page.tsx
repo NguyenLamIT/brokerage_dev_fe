@@ -43,7 +43,10 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
   const idPart = params.id.split("-i.");
   const id = idPart[idPart.length - 1];
   const type = searchParams?.type;
-
+  const [ countryData] = await Promise.all([
+    getRequest("/config/countries"),
+  ]);
+  const countries: any[] = countryData?.data;
   const suppliers: any = await getsupplier(id);
   const {
     supplier,
@@ -473,11 +476,11 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
               </div>
             ) : type == "posts" ? (
               <div className="col-span-2">
-                <PostTab user={user} id={id} />
+                <PostTab  user={user} id={id} />
               </div>
             ) : (
               <div className="col-span-2">
-                <ProductTab user={user} id={id} />
+                <ProductTab countries={countries} user={user} id={id} />
               </div>
             )}
 

@@ -27,7 +27,7 @@ const Search = async (props: any) => {
   const countries: any[] = countryData?.data;
   const { post, product, buyer, supplier, rfq } = data;
   return (
-    <div className="container grid grid-cols-1 md:grid-cols-5 gap-16 relative">
+    <div className="container grid grid-cols-1 md:grid-cols-6 gap-16 relative">
       {user ? (
         <div className="col-span-2 sticky top-24 h-64 mt-8">
           <UserProfile user={user} />
@@ -50,7 +50,7 @@ const Search = async (props: any) => {
           </div>
         </div>
       )}
-      <div className="col-span-3 flex flex-col gap-10 py-8">
+      <div className="col-span-4 flex flex-col gap-10 py-8">
         <p className="font-bold text-3xl">Search Social</p>
         {post.length > 0 && (
           <div>

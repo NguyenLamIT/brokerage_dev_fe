@@ -3,7 +3,7 @@ import React from 'react'
 import LoadMore from './LoadMore';
 import ProductItem from '../../product/ProductItem';
 
-const ProductTab = async ({ user, id }: any) => {
+const ProductTab = async ({ user, id, countries }: any) => {
     let products = [];
     let total_product;
     try {
@@ -18,11 +18,18 @@ const ProductTab = async ({ user, id }: any) => {
             <p className="text-3xl font-bold">Products</p>
             <div className="flex flex-col gap-3">
                 <div className='grid md:grid-cols-4 gap-10'>
-                    {products.map((pd: any) => (
-                        <ProductItem pd={pd} key={pd.code} />
-                    ))}
+                    {products.map((pd: any, index: any) => {
+                        const country = countries.find(
+                            (country:any) => country.code == pd.origin_country?.code
+                        );
+                        return (
+                            <ProductItem key={index} pd={pd} country={country} />
+
+                        );
+                    })}
                 </div>
                 <LoadMore
+                    countries={countries}
                     id={id}
                     length={products.length}
                     total={total_product}

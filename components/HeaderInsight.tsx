@@ -63,6 +63,11 @@ const HeaderInsight = async () => {
                 </Link>
               </SheetClose>
               <SheetClose asChild>
+                <Link href="/social" className={"font-bold text-[#081540] w-full"}>
+                  Social
+                </Link>
+              </SheetClose>
+              <SheetClose asChild>
                 <Link href="/product" className={"font-bold text-[#081540] w-full"}>
                   Products
                 </Link>
@@ -100,6 +105,11 @@ const HeaderInsight = async () => {
                     height={56}
                     className="h-14 w-32 object-contain"
                   />
+                </Link>
+              </SheetClose>
+              <SheetClose asChild>
+                <Link href="/overview" className={"font-bold text-[#081540] w-full"}>
+                  Overview
                 </Link>
               </SheetClose>
               <SheetClose asChild>

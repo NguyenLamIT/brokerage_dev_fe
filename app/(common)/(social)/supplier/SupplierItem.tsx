@@ -31,7 +31,7 @@ const SupplierItem = ({ pd, country }: any) => {
           <div>
             <div className="flex gap-2 items-start">
               <p className="font-bold text-[#081440] line-clamp-2 min-h-[3.5rem] text-xl">{pd.supplier_name}</p>
-              <div className="w-4 h-4 mt-1"
+              <div className="w-4 h-4 mt-2"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

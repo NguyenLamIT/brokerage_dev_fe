@@ -16,57 +16,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
 
-export const formatSearch = (data: any) => {
-  const { buyer, post, product, rfq, supplier } = data;
-  let search: any = [];
-  post &&
-    post.forEach((element: any) => {
-      search.push({
-        name: "Post - " + element.name,
-        href:
-          "/post/" + element.name.split(" ").join("-") + "-i." + element.code,
-      });
-    });
-  product &&
-    product.forEach((element: any) => {
-      search.push({
-        name: "Product - " + element.name,
-        href:
-          "/product/" +
-          element.name.split(" ").join("-") +
-          "-i." +
-          element.code,
-      });
-    });
-  buyer?.data &&
-    buyer?.data.forEach((element: any) => {
-      search.push({
-        name: "Buyer - " + element.name,
-        href:
-          "/buyer/" + element.name.split(" ").join("-") + "-i." + element.code,
-      });
-    });
-  rfq &&
-    rfq.forEach((element: any) => {
-      search.push({
-        name: "RFQ - " + element.name,
-        href:
-          "/rfq/" + element.name.split(" ").join("-") + "-i." + element.code,
-      });
-    });
-  supplier?.basic_supplier &&
-    supplier?.basic_supplier.forEach((element: any) => {
-      search.push({
-        name: "Supplier - " + element.name,
-        href:
-          "/supplier/" +
-          element.name.split(" ").join("-") +
-          "-i." +
-          element.code,
-      });
-    });
-  return search;
-};
 
 const SocialMarketplaceSearch: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -89,10 +38,7 @@ const SocialMarketplaceSearch: React.FC = () => {
           data?.data.forEach((element: any) => {
             newData.push({
               name: element.name,
-              href:
-                select === "ALL"
-                  ? "/search?category=" + element.code
-                  : select.toLowerCase() + "?category=" + element.code,
+              href: element.code,
               avatar: element.avatar,
             });
           });
@@ -132,7 +78,7 @@ const SocialMarketplaceSearch: React.FC = () => {
                 <SelectGroup>
                   <SelectItem value="ALL">All</SelectItem>
                   <SelectItem value="PRODUCT">Products</SelectItem>
-                  <SelectItem value="Suppliers">Suppliers</SelectItem>
+                  <SelectItem value="Supplier">Suppliers</SelectItem>
                   <SelectItem value="BUYER">Buyers</SelectItem>
                   <SelectItem value="SUPPLIER">RFQs</SelectItem>
                   {/* <SelectItem value="POST">Posts</SelectItem> */}
@@ -157,9 +103,8 @@ const SocialMarketplaceSearch: React.FC = () => {
                 startIcon={() => <Search className="h-5 w-5" />}
               />
               <div
-                className={`absolute z-10 w-full bg-white top-16 list-none p-4 rounded-md shadow-md ${
-                  isOpen ? "" : "hidden"
-                }`}
+                className={`absolute z-10 w-full bg-white top-16 list-none p-4 rounded-md shadow-md ${isOpen ? "" : "hidden"
+                  }`}
               >
                 <div
                   className="flex flex-col h-[40vh] overflow-auto"
@@ -167,7 +112,9 @@ const SocialMarketplaceSearch: React.FC = () => {
                 >
                   {data.map((d: any, index: any) => (
                     <Link
-                      href={d.href}
+                      href={(select === "ALL"
+                        ? "/search?category="
+                        : select.toLowerCase() + "?category=") + d.href}
                       key={index}
                       className="flex items-center gap-3 hover:bg-gray-100 cursor-pointer w-full px-1"
                     >

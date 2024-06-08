@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react";
 import React, { useState } from "react";
 import ProductItem from "../../product/ProductItem";
 
-const LoadMore = ({ id, length, total }: any) => {
+const LoadMore = ({ id, length, total, countries }: any) => {
   const [page, setPage] = useState(2);
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<any>([]);
@@ -19,13 +19,18 @@ const LoadMore = ({ id, length, total }: any) => {
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   };
-  console.log(length, total)
   return (
     <div>
       <div className='grid md:grid-cols-4 gap-10'>
-        {data.map((dt: any, index: any) => (
-          <ProductItem key={index} pd={dt} />
-        ))}
+        {data.map((pd: any, index: any) => {
+          const country = countries.find(
+            (country: any) => country.code == pd.origin_country?.code
+          );
+          return (
+            <ProductItem key={index} pd={pd} country={country} />
+
+          );
+        })}
       </div>
       {length + data.length < total && (
         <div className="w-full flex pt-4 justify-center items-center">

@@ -74,7 +74,7 @@ const ProductDetail = async ({ params }: any) => {
       <div className="grid grid-cols-1  md:grid-cols-5 gap-14 relative pt-7 border-b border-gray-300  ">
         <div className="col-span-3 flex flex-col gap-10">
           <p className="text-4xl text-[#4A4A4A] font-bold">{product.name}</p>
-          <p className="text-3xl text-[#908E8E]">{product.category_code}</p>
+          <p className="text-3xl text-[#908E8E]">{product.category_name}</p>
           <div className="flex gap-5 items-center">
             <Image
               src={product?.avatar}

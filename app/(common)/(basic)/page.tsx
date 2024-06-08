@@ -67,11 +67,6 @@ const Home = async () => {
     getRequest("/insight/suggest?number_posts=5"),
     getRequest("/insight/trading?number_posts=6"),
   ]);
-  function convertToISO8601(dateStr: any) {
-    const parts = dateStr.toString()?.split(/[- :]/);
-    const isoDateStr = `${parts[2]}-${parts[1]}-${parts[0]}T${parts[3]}:${parts[4]}:${parts[5]}Z`;
-    return new Date(isoDateStr);
-  }
   const suppliers: ISupplier[] = supplierData?.basic_supplier;
   const products: IProduct[] = productData?.data;
   const countries: any[] = countryData?.data;
@@ -91,7 +86,7 @@ const Home = async () => {
         />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
           <div className="container w-[80%] flex flex-col gap-6 mx-auto">
-            <CarouseAutoPlay realtime={realtime}/>
+            <CarouseAutoPlay realtime={realtime} />
             <SearchHome />
           </div>
         </div>
@@ -299,10 +294,11 @@ const Home = async () => {
               }
             </div>
             <div className="grid xl:grid-cols-6 gap-10">
-              {suppliers?.map((supplier, index: any) => {
-                return (
-                  <SupplierItem key={index} country={countries} pd={supplier} />
+              {suppliers.map((pd: any, index: any) => {
+                const country = countries.find(
+                  (country) => country.code == pd.supplier_country.code
                 );
+                return <SupplierItem key={index} pd={pd} country={country} />;
               })}
             </div>
           </div>
@@ -318,9 +314,13 @@ const Home = async () => {
               }
             </div>
             <div className="grid xl:grid-cols-6 gap-10">
-              {products.map((product, index: any) => {
+              {products.map((pd: any, index: any) => {
+                const country = countries.find(
+                  (country) => country.code == pd.origin_country?.code
+                );
                 return (
-                  <ProductItem key={index} country={countries} pd={product} />
+                  <ProductItem key={index} pd={pd} country={country} />
+
                 );
               })}
             </div>
