@@ -1,27 +1,28 @@
 'use client'
 import { getRequest } from '@/hook/apiClient'
-import { useSession } from 'next-auth/react'
-import { redirect, useSearchParams } from 'next/navigation'
+import { signIn, useSession } from 'next-auth/react'
+import { redirect, useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect } from 'react'
-
 const Google = () => {
-    const params = useSearchParams()
-    const { update } = useSession();
+  const params = useSearchParams()
+  const route = useRouter()
+  useEffect(() => {
+    (async () => {
+      const queryParams = new URLSearchParams(params.toString());
+      const queryString = queryParams.toString();
+      const res = await signIn("credentials", {
+        type: 'google',
+        params: queryString,
+        redirect: false,
+      });
+      if (!res?.error) {
+        route.push("/");}
+    })()
+  }, []);
 
-    useEffect(() => {
-        const queryParams = new URLSearchParams(params.toString())
-        const queryString = queryParams.toString()
-        console.log(queryString)
-        getRequest(`/auth/google/callback?${queryString}`)
-            .then(data => {
-                update({ create: data })
-                    .then(() => redirect('/'))
-            })
-    }, [])
-
-    return (
-        <div>Login susuces, wait</div>
-    )
+  return (
+    <div>Login susuces, wait</div>
+  )
 }
 
 export default Google

@@ -4,8 +4,21 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const options: NextAuthOptions = {
   providers: [
     CredentialsProvider({
+      id: 'Credentials',
       name: "Credentials",
       credentials: {
+        type: {
+          label: "Type",
+          type: "text",
+          placeholder: "type",
+          value: "",
+        },
+        params: {
+          label: "Params",
+          type: "text",
+          placeholder: "params",
+          value: "",
+        },
         email: {
           label: "Email",
           type: "text",
@@ -20,6 +33,25 @@ export const options: NextAuthOptions = {
         },
       },
       async authorize(credentials: any) {
+        if(credentials.type == "google"){ 
+          const res = await fetch(
+            process.env.NEXT_PUBLIC_BASE_URL + `/auth/google/callback?${credentials?.params}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const data = await res.json();
+          if (res.ok) {
+            const { access_token, token_type, user } = data;
+            const token = { access_token, token_type };
+  
+            return { ...user, ...token };
+          }
+          return null;
+        }
         const res = await fetch(
           process.env.NEXT_PUBLIC_BASE_URL + "/auth/login",
           {
@@ -40,6 +72,7 @@ export const options: NextAuthOptions = {
         return null;
       },
     }),
+
   ],
   callbacks: {
     async jwt({ token, user, trigger, session }) {
@@ -53,10 +86,7 @@ export const options: NextAuthOptions = {
         if (session?.user) {
           token = { ...token, ...session.user };
         }
-        if (session?.create) {
-          token = session.create;
-          return { ...user, ...token };
-        }
+
         return { ...user, ...token };
       }
       return { ...token, ...user };
