@@ -23,8 +23,7 @@ const Rfq = async (props: any) => {
             "&keyword=" +
             keyword +
             "&category_code=" +
-            category +
-            "&level=3"
+            category
         ),
     ]);
     const Rfqs: any[] = RfqData?.data;

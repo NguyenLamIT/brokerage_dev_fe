@@ -24,8 +24,7 @@ const Product = async (props: any) => {
             "&keyword=" +
             keyword +
             "&category_code=" +
-            category +
-            "&level=3"
+            category
         ),
     ]);
     const products: IProduct[] = productData?.data;

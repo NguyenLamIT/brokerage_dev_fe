@@ -25,8 +25,7 @@ const Supplier = async (props: any) => {
             "&keyword=" +
             keyword +
             "&category_code=" +
-            category +
-            "&level=3"
+            category
         ),
     ]);
     const suppliers: ISupplier[] = supplierData?.basic_supplier || [];
