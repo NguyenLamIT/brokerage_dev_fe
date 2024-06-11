@@ -381,7 +381,7 @@ const FormSchema = (props: any) => {
                   <FormControl>
                     <Input
                       placeholder="Enter old password"
-                      type="text"
+                      type="password"
                       {...field}
                       className=" !h-14 text-[#000000] !text-xl !font-sans"
                     />
@@ -404,7 +404,7 @@ const FormSchema = (props: any) => {
                   <FormControl>
                     <Input
                       placeholder="Enter New password"
-                      type="text"
+                      type="password"
                       {...field}
                       className=" !h-14 text-[#000000] !text-xl !font-sans"
                     />
@@ -427,7 +427,7 @@ const FormSchema = (props: any) => {
                   <FormControl>
                     <Input
                       placeholder="Enter Confirm password"
-                      type="text"
+                      type="password"
                       {...field}
                       className=" !h-14 text-[#000000] !text-xl !font-sans"
                     />
