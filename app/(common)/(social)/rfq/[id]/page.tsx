@@ -177,7 +177,7 @@ const RfqDetail = async ({ params }: any) => {
                     Delivery Terms
                   </td>
                   <td className="text-[#404040] text-xl">
-                    {rfq.logistic_terms.delivery_term["term"]
+                    {rfq.logistic_terms.delivery_term["term"]?
                       .map((dt: any) => dt.name)
                       .join(", ")}
                   </td>
@@ -195,7 +195,7 @@ const RfqDetail = async ({ params }: any) => {
                     Target Shipment Date
                   </td>
                   <td className="text-[#404040] text-xl flex gap-1 items-center">
-                    {rfq.logistic_terms.target_shipment_date.value}
+                    {rfq.logistic_terms.target_shipment_date?.value}
                     {
                       rfq.logistic_terms.nonegotiable == 1 ? <Badge>nonnegotiable</Badge> : <Badge>Negotiable</Badge>
                     }
@@ -300,25 +300,25 @@ const RfqDetail = async ({ params }: any) => {
                 Reason For This Request
               </td>
               <td className="text-[#404040] text-xl col-span-3">
-                {rfq.additional_information.reason_for_this_request}
+                {rfq.additional_information?.reason_for_this_request}
               </td>
               <td className="text-gray-700 font-medium text-xl col-span-1">
                 Intended Usage
               </td>
               <td className="text-[#404040] text-xl flex gap-1 items-center  col-span-3">
-                {rfq.additional_information.intended_usage}
+                {rfq.additional_information?.intended_usage}
               </td>
               <td className="text-gray-700 font-medium text-xl col-span-1">
                 Additional details
               </td>
               <td className="text-[#404040] text-xl flex gap-1 items-center  col-span-3">
-                {rfq.additional_information.additional_details}
+                {rfq.additional_information?.additional_details}
               </td>
               <td className="text-gray-700 font-medium text-xl col-span-1">
                 Attachment
               </td>
               <td className="text-[#404040] text-xl flex gap-1 items-center  col-span-3">
-                {!rfq.additional_information.attachment ? "False" : <div className="flex gap-3 flex-wrap">
+                {!rfq.additional_information?.attachment ? "False" : <div className="flex gap-3 flex-wrap">
                   {
                     rfq.additional_information.attachment.map((attachment: any, index: any) => <ImageZoom key={index} src={attachment} />)
                   }
