@@ -55,7 +55,7 @@ const DragDropFile = ({ type, fileName }: any) => {
         toast({
           variant: "destructive",
           title: "Fail!",
-          description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data)[0][0]:JSON.parse(err.request.response).message):"Something went wrong!",
+          description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data as object)[0][0] :JSON.parse(err.request.response).message):"Something went wrong!",
         });
       });
   };
@@ -83,7 +83,7 @@ const DragDropFile = ({ type, fileName }: any) => {
         toast({
           variant: "destructive",
           title: "Fail!",
-          description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data)[0][0]:JSON.parse(err.request.response).message):"Something went wrong!",
+          description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data as object)[0][0] :JSON.parse(err.request.response).message):"Something went wrong!",
         });
       });
   };
@@ -116,7 +116,7 @@ const DragDropFile = ({ type, fileName }: any) => {
         toast({
           variant: "destructive",
           title: "Fail!",
-          description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data)[0][0]:JSON.parse(err.request.response).message):"Something went wrong!",
+          description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data as object)[0][0] :JSON.parse(err.request.response).message):"Something went wrong!",
         });
       });
   };
