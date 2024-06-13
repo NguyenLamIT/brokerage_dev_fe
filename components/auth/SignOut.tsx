@@ -7,7 +7,6 @@ const SignOut = () => {
   const route = useRouter()
   return (
     <div
-      className="w-full"
       onClick={() => {
         signOut({ callbackUrl: process.env.NEXT_URL});
       }}
