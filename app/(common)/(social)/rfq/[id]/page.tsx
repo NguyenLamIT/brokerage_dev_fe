@@ -259,7 +259,7 @@ const RfqDetail = async ({ params }: any) => {
             </table>
           </div>
           <div>
-            <p className="text-lg font-bold text-[#081440] pb-4">Submitted By</p>
+            <p className="text-lg font-bold text-[#081440] pb-4">Buyer By</p>
             <div className="flex">
 
               <div className="flex flex-col gap-4 border border-gray-300 p-3 rounded-md">
