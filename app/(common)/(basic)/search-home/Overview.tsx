@@ -10,6 +10,7 @@ import Link from 'next/link';
 import React from 'react'
 
 const Overview = ({ data, countries, user }: any) => {
+    console.log(data);
     const { products, basic_supplier, insights, rfqs, buyers } = data;
 
     return (
@@ -148,6 +149,16 @@ const Overview = ({ data, countries, user }: any) => {
                             })}
                     </div>
                 </div>
+            )}
+            {!(basic_supplier?.length > 0) && 
+                !(products?.length > 0) &&
+                !(basic_supplier?.length > 0) &&
+                !(insights?.length > 0) &&
+                !(rfqs?.length > 0) &&
+                (
+                <p className="py-3 text-[#081342]">
+                    {"0 Results"}
+                </p>
             )}
         </div>
     )
