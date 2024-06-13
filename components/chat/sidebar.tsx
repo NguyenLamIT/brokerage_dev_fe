@@ -22,7 +22,6 @@ export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, tota
       })
       .finally(() => setLoad(false));
   };
-  console.log(messages?.length, total)
   useEffect(() => {
     const handleScroll = () => {
       if (navbar.current) {

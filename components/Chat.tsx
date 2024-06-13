@@ -19,7 +19,7 @@ export default function MessageList() {
     const [openMenu, setOpenMenu] = useState(false)
     const [loading, setLoading] = useState<any>()
     const [count, setCount] = useState<any>(0)
-    const [total, setTotal]= useState<any>(0)
+    const [total, setTotal] = useState<any>(0)
     useEffect(() => {
         if (!open) {
             localStorage.removeItem("user-mess")
@@ -35,7 +35,6 @@ export default function MessageList() {
                         { code: mess?.target_user?.code, unread: mess?.unread, name: mess?.target_user?.name, avatar: mess?.target_user?.avatar, chat: [{ code: mess?.target_user?.code, mess: mess?.message, avatar: mess?.target_user?.avatar, time: new Date() }] }
                     ))
                     setDataMess(dt)
-                    console.log(data?.total_record)
                     setTotal(data?.total_record)
                     setLoading(false)
                 })
@@ -74,15 +73,13 @@ export default function MessageList() {
             if (check) {
                 let dt = dataMess.map((userSend: any) => {
                     if (newData.root == userSend?.code) {
-                        // setSelect({ ...userSend, chat: [...userSend.chat, { code: newData.root, mess: newData.mess, avatar: newData.avatar, time: newData.time }] })
-                        return ({ ...userSend, chat: [...userSend.chat, { code: newData.root, mess: newData.mess, avatar: newData.avatar, time: newData.time }] })
+                        return ({ ...userSend,chat: [...userSend.chat, { code: newData.root, mess: newData.mess, avatar: newData.avatar, time: newData.time }] })
                     }
                     else return userSend
                 })
                 setDataMess(dt)
             }
             else {
-                // setSelect({ code: newData.root, name: newData?.name, avatar: newData?.avatar, chat: [{ code: newData.root, mess: newData.mess, avatar: newData.avatar, time: newData.time }] })
                 setDataMess((prev: any) => [{ code: newData.root, name: newData?.name, avatar: newData?.avatar, chat: [{ code: newData.root, mess: newData.mess, avatar: newData.avatar, time: newData.time }] }, ...prev])
             }
         }
