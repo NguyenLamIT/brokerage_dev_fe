@@ -31,7 +31,7 @@ const ContactNow = ({ representative }: any) => {
                                                 alt="flag"
                                                 width={64}
                                                 height={64}
-                                                className="w-16 h-16"
+                                                className="w-16 h-16 object-contain"
                                             />
                                             <div>
                                                 <p className="font-bold text-[#081440]">

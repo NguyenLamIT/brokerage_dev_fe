@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { cache } from "react";
 import NewsItem from "../../news/NewsItem";
+import { CarouselItem, CarouselNext, CarouselPrevious, Carousel, CarouselContent } from "@/components/ui/carousel";
 const getDetail = cache(async (id: string) => {
   const detail: any = await getRequest("/insight/report/" + id);
   return detail?.data[0];
@@ -34,6 +35,7 @@ const Detail = async ({ params }: any) => {
   ] = await Promise.all([
     getRequest(`/insight/suggest?number_posts=9?content_type=${detail.content_type}&current_slug=${detail.title_slug}&page=1`),
   ]);
+  console.log(detail)
   const news = newsData?.data
   return (
     <div>
@@ -89,7 +91,7 @@ const Detail = async ({ params }: any) => {
                       height={24}
                       className="w-6 h-6 object-cover"
                     />
-                    <span>{moment(detail.public_date,'DD-MM-YYYY HH:mm:ss').format("MMM Do, YYYY")}</span>
+                    <span>{moment(detail.public_date, 'DD-MM-YYYY HH:mm:ss').format("MMM Do, YYYY")}</span>
                   </div>
                 </div>
               </div>
@@ -99,18 +101,38 @@ const Detail = async ({ params }: any) => {
       </div>
       <div className="container">
         <div className="grid md:grid-cols-3 pt-[4.125rem] gap-10 relative">
-          <div className="col-span-2">
-            <div dangerouslySetInnerHTML={{ __html: detail?.content }} />
-
-            <div className="text-xl pt-8">
-              Source: <span className="text-[081342] underline">{detail?.author}</span>
-            </div>
+          <div className="col-span-2 flex flex-col h-full">
+            {
+              detail?.pdf_files &&
+              <Carousel length={detail?.pdf_files?.length} opts={{
+                align: "start",
+              }}>
+                <CarouselContent className="p-1 flex">
+                  {detail?.pdf_files?.map((data: any) => (
+                    <CarouselItem
+                      key={data.title_slug}
+                      className="cursor-pointer h-[80vh]"
+                    >
+                      <iframe className="w-full h-full object-cover" src={data} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious src="/left.png" />
+                <CarouselNext src="/right.png" />
+              </Carousel>
+            }
+            {
+              detail?.content &&
+              <div className="flex flex-col gap-4">
+                <div dangerouslySetInnerHTML={{ __html: detail?.content }} />
+              </div>
+            }
             <div className="pt-[6.25rem]">
               <p className="font-bold text-xl pb-[2.5rem]">
                 Read more relevant content
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-x-[1.875rem] gap-y-[2.3125rem] pb-20">
-                {news.slice(0,6).map((value: any, index: any) => (
+                {news.slice(0, 6).map((value: any, index: any) => (
                   <NewsItem value={value} key={index} />
                 ))}
               </div>

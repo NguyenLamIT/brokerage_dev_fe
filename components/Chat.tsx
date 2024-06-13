@@ -60,7 +60,7 @@ export default function MessageList() {
                     description: `${newData?.name} send messenger to you`,
                     action: (
                         <ToastAction altText="Check" onClick={() => {
-                            setSelect(newData.code)
+                            setSelect(newData.root)
                             setTimeout(() => {
                                 setOpen(true)
                             }, 100)

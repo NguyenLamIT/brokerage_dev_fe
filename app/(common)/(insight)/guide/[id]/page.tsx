@@ -153,16 +153,28 @@ const Detail = async ({ params }: any) => {
       </div>
       <div className="grid md:grid-cols-3 pt-[4.125rem] gap-10 relative">
         <div className="col-span-2">
-          <div dangerouslySetInnerHTML={{ __html: detail?.content }} />
-          <div className="text-xl pt-8">
-            Source: <span className="text-[081342] underline">{detail?.author}</span>
+          <div className="flex flex-col gap-10">
+            {
+              detail?.summary &&
+              <div className="flex flex-col gap-4">
+                <p className="text-2xl font-bold">Trade4go Summary</p>
+                <div dangerouslySetInnerHTML={{ __html: detail?.summary }} />
+              </div>
+            }
+            {
+              detail?.content &&
+              <div className="flex flex-col gap-4">
+                <p className="text-2xl font-bold">Original content</p>
+                <div dangerouslySetInnerHTML={{ __html: detail?.content }} />
+              </div>
+            }
           </div>
           <div className="pt-[6.25rem]">
             <p className="font-bold text-xl pb-[2.5rem]">
               Read more relevant content
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-x-[1.875rem] gap-y-[2.3125rem]">
-              {news.slice(0,6).map((value: any, index: any) => (
+              {news.slice(0, 6).map((value: any, index: any) => (
                 <NewsItem href={`/${value?.content_type.split('_').join('-').toLowerCase()}/`} value={value} key={index} />
               ))}
             </div>
@@ -183,8 +195,8 @@ const Detail = async ({ params }: any) => {
           <p className="text-2xl font-bold pb-[1rem]">What to read next</p>
           <div className="flex flex-col gap-[2.5rem]">
             {news.slice(6,).map((value: any, index: any) => (
-                <NewsItem href={`/${value?.content_type.split('_').join('-').toLowerCase()}/`} value={value} key={index} />
-              ))}
+              <NewsItem href={`/${value?.content_type.split('_').join('-').toLowerCase()}/`} value={value} key={index} />
+            ))}
           </div>
         </div>
       </div>

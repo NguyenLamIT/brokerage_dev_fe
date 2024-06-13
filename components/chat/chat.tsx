@@ -22,7 +22,7 @@ export function Chat({ setCount,messages, selectedUser, isMobile, setOpen, sendM
                 alt={messages.find((f:any) => f.code == selectedUser)?.name}
                 width={6}
                 height={6}
-                className="w-10 h-10 "
+                className="w-10 h-10  object-contain"
               />
             </Avatar>
             <div className="flex flex-col">

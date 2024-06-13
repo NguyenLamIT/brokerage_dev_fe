@@ -27,6 +27,7 @@ export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, tota
       if (navbar.current) {
         const { scrollTop, scrollHeight, clientHeight } = navbar.current;
         if (scrollHeight - scrollTop - clientHeight < 300) {
+          console.log(messages?.length , total)
           if (messages?.length < total)
             setLoad(true);
         }
@@ -42,7 +43,7 @@ export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, tota
         navbar.current.removeEventListener('scroll', handleScroll);
       }
     };
-  }, [navbar, total, messages]);
+  }, [total, messages]);
 
 
   useEffect(() => {
@@ -74,7 +75,7 @@ export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, tota
                     alt={link.name}
                     width={6}
                     height={6}
-                    className="w-10 h-10 "
+                    className="w-10 h-10 object-contain"
                   />
                 </Avatar>
                 <div className="flex flex-col ">
