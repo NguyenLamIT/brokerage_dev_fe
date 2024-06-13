@@ -4,11 +4,12 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 const SignOut = () => {
-  const route = useRouter()
+  const router = useRouter()
   return (
     <div
-      onClick={() => {
-        signOut({ callbackUrl: process.env.NEXT_URL});
+      onClick={async() => {
+        await signOut({ redirect: false })
+        router.push("/signin");
       }}
     >
       Sign Out

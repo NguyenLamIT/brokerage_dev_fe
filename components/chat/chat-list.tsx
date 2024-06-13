@@ -63,7 +63,7 @@ export function ChatList({
     const chat = messages.find((f: any) => f.code == selectedUser)
     getRequest(`/chat/messages?user_role=${user?.role}&target_code=${selectedUser}&page=${Math.floor(chat?.chat.length / 10) + 1}&limit=10`)
       .then(data => {
-        const loadMess = data?.data.map((mess: any) => (
+        const loadMess = data?.data.reverse().map((mess: any) => (
           { id: mess?.id, unread: mess?.unread, code: mess?.target_user?.code, mess: mess?.message, avatar: mess?.target_user?.avatar, time: new Date() }
         ))
 
@@ -100,8 +100,8 @@ export function ChatList({
       setLoading(true)
       getRequest(`/chat/messages?user_role=${user?.role}&target_code=${selectedUser}&page=1&limit=10`)
         .then(data => {
-          const loadMess = data?.data.map((mess: any) => (
-            { id: mess?.id, unread: mess?.unread, code: mess?.target_user?.code, mess: mess?.message, avatar: mess?.target_user?.avatar, time: new Date() }
+          const loadMess = data?.data.reverse().map((mess: any) => (
+            { id: mess?.id, unread: mess?.unread, code: mess?.target_user?.code, mess: mess?.message, avatar: mess?.target_user?.avatar, time: mess?.created_at }
           ))
 
           const dt = messages.map((m: any) => {

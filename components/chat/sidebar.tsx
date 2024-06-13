@@ -43,7 +43,7 @@ export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, tota
         navbar.current.removeEventListener('scroll', handleScroll);
       }
     };
-  }, [total, messages]);
+  }, [total, messages, navbar]);
 
 
   useEffect(() => {
