@@ -43,7 +43,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
   const idPart = params.id.split("-i.");
   const id = idPart[idPart.length - 1];
   const type = searchParams?.type;
-  const [ countryData] = await Promise.all([
+  const [countryData] = await Promise.all([
     getRequest("/config/countries"),
   ]);
   const countries: any[] = countryData?.data;
@@ -225,10 +225,10 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                     </div>
                   </div>
                 )}
-                {suggest_product_list.length > 0 && (
-                  <div className="pb-20 flex flex-col gap-4">
-                    <div className="flex justify-between items-center">
-                      <p className="text-3xl font-bold">Products</p>
+                <div className="pb-20 flex flex-col gap-4">
+                  <div className="flex justify-between items-center">
+                    <p className="text-3xl font-bold">Products</p>
+                    {suggest_product_list?.length > 0 &&
                       <Link
                         href={"?type=products"}
                         className="flex gap-2 items-center"
@@ -249,7 +249,9 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                           />
                         </svg>
                       </Link>
+                    }
                     </div>
+                    {suggest_product_list.length > 0 ? (
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                       {suggest_product_list.slice(0, 4).map((pd: any) => (
                         <Link
@@ -281,12 +283,17 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                         </Link>
                       ))}
                     </div>
-                  </div>
-                )}
+                   ) : (
+                    <div className="text-lg text-[#8C8585]">
+                      There are no product to be shown yet.
+                    </div>
+                  )}
+                </div>
+  
                 <div className="pb-20 flex flex-col gap-4">
                   <p className="text-3xl font-bold">Videos</p>
                   <p className="text-2xl font-bold">Videos</p>
-                  {supplier?.video?.map((e: any, index: any) => (
+                  {supplier?.video?.length > 0 ? supplier.video.map((e: any, index: any) => (
                     <div key={index}>
                       <p className="font-bold text-xl">{e.title}</p>
                       <p className="font-semibold text-lg text-[#939AA1]">
@@ -300,7 +307,11 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                         </video>
                       )}
                     </div>
-                  ))}
+                   )) : (
+                    <div className="text-lg text-[#8C8585]">
+                      There are no product to be shown yet.
+                    </div>
+                  )}
                 </div>
                 {/* <p className="text-3xl font-bold">Export History</p>
                 <p className="text-2xl font-bold text-[#939AA1]">
@@ -383,7 +394,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                   Representatives
                 </p>
                 <div className="grid lg:grid-cols-2 gap-16">
-                  {representative?.map((re: any, index: any) => (
+                {representative?.length > 0 ? representative.map((re: any, index: any) => (
                     <div
                       key={index}
                       className="flex flex-col gap-4 border border-gray-300 p-3 rounded-md"
@@ -417,7 +428,11 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                         <SendMessage user={re} />
                       </div>
                     </div>
-                  ))}
+                  )) : (
+                    <div className="text-lg text-[#8C8585]">
+                      There are no product to be shown yet.
+                    </div>
+                  )}
 
                   {/* <div className='flex flex-col gap-4'>
                                     <div className='flex items-center gap-3'>
@@ -456,27 +471,32 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                   <p className="text-3xl font-bold">Why Us?</p>
                 </div>
                 <div className="flex flex-col gap-14">
-                  {supplier?.why_us?.map((e: any, index: any) => {
-                    return (
-                      <div
-                        className="flex border border-gray-300 p-3 rounded-md items-center bg-gray-100"
-                        key={index}
-                      >
-                        <div className="text-5xl px-10 text-center flex justify-center font-semibold text-gray-700">
-                          {index + 1}
+                {supplier?.why_us?.length > 0 ?
+                    suppliers.why_us.map((e: any, index: any) => {
+                      return (
+                        <div
+                          className="flex border border-gray-300 p-3 rounded-md items-center bg-gray-100"
+                          key={index}
+                        >
+                          <div className="text-5xl px-10 text-center flex justify-center font-semibold text-gray-700">
+                            {index + 1}
+                          </div>
+                          <div className="flex flex-col gap-3">
+                            <p className="text-xl font-bold">{e.title}</p>
+                            <p className="font-semibold">{e.content}</p>
+                          </div>
                         </div>
-                        <div className="flex flex-col gap-3">
-                          <p className="text-xl font-bold">{e.title}</p>
-                          <p className="font-semibold">{e.content}</p>
-                        </div>
+                      );
+                    }) : (
+                      <div className="text-lg text-[#8C8585]">
+                        There are no product to be shown yet.
                       </div>
-                    );
-                  })}
+                    )}
                 </div>
               </div>
             ) : type == "posts" ? (
               <div className="col-span-2">
-                <PostTab  user={user} id={id} />
+                <PostTab user={user} id={id} />
               </div>
             ) : (
               <div className="col-span-2">
@@ -488,36 +508,40 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
               <p className="text-3xl font-bold">Contact Supplier</p>
               <p className="text-lg text-[#ACADAF]">Representative</p>
               <div className="flex flex-col gap-6">
-                {representative?.map((re: any, index: any) => (
-                  <div
-                    className="flex flex-col gap-3"
-                    key={index}
-                  >
-                    <div className="flex gap-5 items-center">
-                      <Image
-                        src={re.avatar}
-                        alt="flag"
-                        width={64}
-                        height={64}
-                        className="w-16 h-16 object-cover"
-                      />
-                      <div>
-                        <p className="font-bold text-[#081440]">
-                          {re.first_name}
-                        </p>
-                        <p className="font-bold text-[#908E8E]">{re.email}</p>
-                        <p className="font-bold text-sm underline text-[#8C8585]">
-                          View detail
-                        </p>
+               {representative?.length > 0 ?
+                  representative?.map((re: any, index: any) => (
+                    <div
+                      className="flex flex-col gap-3"
+                      key={index}
+                    >
+                      <div className="flex gap-5 items-center">
+                        <Image
+                          src={re.avatar}
+                          alt="flag"
+                          width={64}
+                          height={64}
+                          className="w-16 h-16 object-cover"
+                        />
+                        <div>
+                          <p className="font-bold text-[#081440]">
+                            {re.first_name}
+                          </p>
+                          <p className="font-bold text-[#908E8E]">{re.email}</p>
+                          <p className="font-bold text-sm underline text-[#8C8585]">
+                            View detail
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex flex-col gap-1">
-                      <SendMessage user={re} />
-                      {/* <Button variant={"outline"}>Book a Meeting</Button> */}
+                      <div className="flex flex-col gap-1">
+                        <SendMessage user={re} />
+                        {/* <Button variant={"outline"}>Book a Meeting</Button> */}
                     </div>
                   </div>
-                ))}
-
+                  )) : (
+                    <div className="text-lg text-[#8C8585]">
+                      There are no product to be shown yet.
+                    </div>
+                  )}
               </div>
             </div>
           </div>
