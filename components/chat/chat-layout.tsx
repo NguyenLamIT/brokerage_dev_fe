@@ -52,7 +52,6 @@ export function ChatLayout({
               setOpen={setOpen}
               setMessages={setDataMess}
               total={total}
-              messages={dataMess}
             />
           </div> :
           <div className="w-full h-full">

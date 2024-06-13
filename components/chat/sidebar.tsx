@@ -7,7 +7,7 @@ import { getRequest, postRequest } from "@/hook/apiClient";
 import { useEffect, useRef, useState } from "react";
 
 
-export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, total, messages }: any) {
+export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, total }: any) {
   const navbar = useRef<any>(null)
   const [load, setLoad] = useState(false)
   const [page, setPage] = useState(2);
@@ -27,8 +27,8 @@ export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, tota
       if (navbar.current) {
         const { scrollTop, scrollHeight, clientHeight } = navbar.current;
         if (scrollHeight - scrollTop - clientHeight < 300) {
-          console.log(messages?.length , total)
-          if (messages?.length < total)
+          console.log(links?.length , total)
+          if (links?.length < total)
             setLoad(true);
         }
       }
@@ -43,7 +43,7 @@ export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, tota
         navbar.current.removeEventListener('scroll', handleScroll);
       }
     };
-  }, [total, messages, navbar]);
+  }, [total, links, navbar]);
 
 
   useEffect(() => {
