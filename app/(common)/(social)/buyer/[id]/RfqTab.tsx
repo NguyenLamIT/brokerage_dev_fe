@@ -15,9 +15,13 @@ const RfqTab = async ({ id, user }: any) => {
     } catch (error) { }
     return (
         <div className="flex flex-col gap-20 col-span-2">
-            {rfqs.map((rfq: any) => (
+            {rfqs?.length > 0 ? rfqs.map((rfq: any) => (
                 <RFQItem key={rfq.code} dt={rfq} user={user} />
-            ))}
+            )) : (
+                <div className="text-lg text-[#8C8585]">
+                    There are no product to be shown yet.
+                </div>
+            )}
             <LoadMoreRFQ id={id} length={rfqs.length} total={total_rfq} user={user} />
         </div>
     )

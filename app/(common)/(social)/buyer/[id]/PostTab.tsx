@@ -18,9 +18,15 @@ const PostTab = async ({ id, user }: any) => {
         <div className="flex flex-col gap-4 col-span-2 ">
             <p className="text-3xl font-bold">Posts</p>
             <div className="mx-auto flex flex-col gap-4 md:w-2/3">
-                {posts_list.map((dt: any, index: any) => (
-                    <PostSocial user={user} dt={dt} key={index} />
-                ))}
+                {posts_list?.length > 0 ? (
+                    posts_list.map((dt: any, index: any) => (
+                        <PostSocial user={user} dt={dt} key={index} />
+                    ))
+                ) : (
+                    <div className="text-lg text-[#8C8585]">
+                        There are no product to be shown yet.
+                    </div>
+                )}
                 <LoadMorePost id={id} user={user} length={posts_list.length} total={total_post} type="BUYER" />
             </div>
         </div>
