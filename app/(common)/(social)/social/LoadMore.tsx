@@ -22,7 +22,8 @@ const LoadMore = ({ length, total, user }: any) => {
         const handleScroll = () => {
             const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
             if (scrollHeight - scrollTop - clientHeight < 300) {
-                setLoad(true)
+                if (length + data.length < total)
+                    setLoad(true)
             }
         };
 

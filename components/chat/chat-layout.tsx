@@ -13,7 +13,8 @@ export function ChatLayout({
   open,
   user,
   setDataMess,
-  setCount
+  setCount,
+  total
 }: any) {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -49,6 +50,9 @@ export function ChatLayout({
               isMobile={isMobile}
               setSelect={setSelect}
               setOpen={setOpen}
+              setMessages={setDataMess}
+              total={total}
+              messages={dataMess}
             />
           </div> :
           <div className="w-full h-full">

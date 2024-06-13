@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ChatLayout } from "./chat/chat-layout";
 import { getSession } from "next-auth/react";
 import axios from "axios";
-import { useSearchParams } from "next/navigation";
 import { useToast } from "./ui/use-toast";
 import { ToastAction } from "./ui/toast";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "./ui/dropdown-menu";
@@ -20,7 +19,7 @@ export default function MessageList() {
     const [openMenu, setOpenMenu] = useState(false)
     const [loading, setLoading] = useState<any>()
     const [count, setCount] = useState<any>(0)
-
+    const [total, setTotal]= useState<any>(0)
     useEffect(() => {
         if (!open) {
             localStorage.removeItem("user-mess")
@@ -30,12 +29,14 @@ export default function MessageList() {
     useEffect(() => {
         setLoading(true)
         if (user?.code) {
-            getRequest(`/chat/messages?user_role=${user?.role}`)
+            getRequest(`/chat/messages?page=1&limit=10`)
                 .then(data => {
                     const dt = data?.data.map((mess: any) => (
                         { code: mess?.target_user?.code, unread: mess?.unread, name: mess?.target_user?.name, avatar: mess?.target_user?.avatar, chat: [{ code: mess?.target_user?.code, mess: mess?.message, avatar: mess?.target_user?.avatar, time: new Date() }] }
                     ))
                     setDataMess(dt)
+                    console.log(data?.total_record)
+                    setTotal(data?.total_record)
                     setLoading(false)
                 })
 
@@ -100,7 +101,7 @@ export default function MessageList() {
 
     const sendMess = (message: any) => {
         let time = new Date()
-        axios.post('/api/send-message', { root: user?.code, code: select?.code, message: message, avatar: user?.avatar, time, name: user?.last_name, role: user?.role })
+        axios.post('/api/send-message', { root: user?.code, code: select, message: message, avatar: user?.avatar, time, name: user?.last_name, role: user?.role })
             .then(() => {
                 let dt = dataMess.map((userSend: any) => {
                     if (userSend?.code == select) {
@@ -158,7 +159,7 @@ export default function MessageList() {
                                 <Loading />
                             </div>
                             :
-                            <ChatLayout setCount={setCount} user={user} open={open} setOpen={setOpen} select={select} setSelect={setSelect} dataMess={dataMess} setDataMess={setDataMess} sendMess={sendMess} />
+                            <ChatLayout total={total} setCount={setCount} user={user} open={open} setOpen={setOpen} select={select} setSelect={setSelect} dataMess={dataMess} setDataMess={setDataMess} sendMess={sendMess} />
                     }
                 </DropdownMenuContent>
             </DropdownMenu>

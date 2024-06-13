@@ -2,9 +2,7 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useRef, useState } from "react";
 import { Avatar, AvatarImage } from "../ui/avatar";
-import ChatBottombar from "./chat-bottombar";
 import { AnimatePresence, motion } from "framer-motion";
-import moment from "moment";
 import { formatDistanceToNow } from "date-fns";
 import { enAU } from "date-fns/locale";
 import { getRequest, postRequest } from "@/hook/apiClient";
@@ -17,7 +15,6 @@ export function ChatList({
   selectedUser,
   setMessages,
   user,
-  setSelect,
   setCount
 }: any) {
   const messagesContainerRef = useRef<HTMLDivElement>(null);
@@ -65,7 +62,6 @@ export function ChatList({
           }
           setMessages(dt)
           setCount((prev: any) => prev - 1)
-          // setSelect({ ...selectedUser, chat: dt })
           setLoading(false)
         })
     }

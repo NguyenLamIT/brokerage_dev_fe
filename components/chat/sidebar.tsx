@@ -1,27 +1,62 @@
 "use client";
 
-import Link from "next/link";
-import { MoreHorizontal, SquarePen } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
 import { Avatar, AvatarImage } from "../ui/avatar";
+import { Skeleton } from "../ui/skeleton";
 import { Message } from "./data";
-import { postRequest } from "@/hook/apiClient";
+import { getRequest, postRequest } from "@/hook/apiClient";
+import { useEffect, useRef, useState } from "react";
 
 
-export function Sidebar({ links, isMobile, setSelect, setOpen }: any) {
+export function Sidebar({ links, isMobile, setSelect, setOpen, setMessages, total, messages }: any) {
+  const navbar = useRef<any>(null)
+  const [load, setLoad] = useState(false)
+  const [page, setPage] = useState(2);
+  const fetchData = () => {
+    getRequest(`/chat/messages?page=${page}&limit=10`)
+      .then(data => {
+        const dt = data?.data.map((mess: any) => (
+          { code: mess?.target_user?.code, unread: mess?.unread, name: mess?.target_user?.name, avatar: mess?.target_user?.avatar, chat: [{ code: mess?.target_user?.code, mess: mess?.message, avatar: mess?.target_user?.avatar, time: new Date() }] }
+        ))
+        setPage((prev) => prev + 1);
+        setMessages((prev: any) => [...prev, ...dt])
+      })
+      .finally(() => setLoad(false));
+  };
+  console.log(messages?.length, total)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (navbar.current) {
+        const { scrollTop, scrollHeight, clientHeight } = navbar.current;
+        if (scrollHeight - scrollTop - clientHeight < 300) {
+          if (messages?.length < total)
+            setLoad(true);
+        }
+      }
+    };
+
+    if (navbar.current) {
+      navbar.current.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (navbar.current) {
+        navbar.current.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [navbar, total, messages]);
+
+
+  useEffect(() => {
+    if (load) {
+      fetchData()
+    }
+  }, [load])
   return (
     <div
       data-collapsed={isMobile}
-      className="relative group flex flex-col h-full w-full gap-4 bord"
+      className="relative group flex flex-col h-full w-full gap-4 bord "
     >
-      <nav className="w-full gap-3">
+      <nav className="w-full gap-3 overflow-auto" ref={navbar}>
         {links.map((link: any, index: any) =>
           <div key={index} className="border-b">
 
@@ -63,6 +98,20 @@ export function Sidebar({ links, isMobile, setSelect, setOpen }: any) {
           </div>
 
         )}
+        {
+          load &&
+          <div className='flex flex-col gap-4'>
+            <div className="flex items-start gap-4 bg-white p-2 rounded-md">
+              <Skeleton className="h-12 w-12 rounded-full" />
+              <div className='w-full flex flex-col gap-3'>
+                <Skeleton className="h-6 w-full" />
+                <Skeleton className="h-6 w-[80%]" />
+              </div>
+            </div>
+
+          </div>
+
+        }
       </nav>
     </div>
   );
