@@ -73,23 +73,6 @@ export function ChatList({
           }
           else return m
         })
-        let ids: any = []
-        loadMess.forEach((element: any) => {
-          if (element?.unread == 1) {
-            ids.push(element?.id)
-          }
-        });
-        if (ids.length > 0) {
-          postRequest('/chat/update-read-msg', {
-            ids: ids
-          }).catch((err) => {
-            toast({
-              variant: "destructive",
-              title: "Fail!",
-              description: JSON.parse(err.request.response).message != undefined ? (JSON.parse(err.request.response).message == "" ? Object.values(JSON.parse(err.request.response).data as object)[0][0]  : JSON.parse(err.request.response).message) : "Something went wrong!",
-            });
-          });
-        }
         setMessages(dt)
         setTimeout(() => setLoad(false), 100)
       })
@@ -110,23 +93,15 @@ export function ChatList({
             }
             else return m
           })
-          let ids: any = []
-          loadMess.forEach((element: any) => {
-            if (element?.unread == 1) {
-              ids.push(element?.id)
-            }
-          });
-          if (ids.length > 0) {
-            postRequest('/chat/update-read-msg', {
-              ids: ids
-            }).catch((err) => {
-              toast({
-                variant: "destructive",
-                title: "Fail!",
-                description: JSON.parse(err.request.response).message != undefined ? (JSON.parse(err.request.response).message == "" ? Object.values(JSON.parse(err.request.response).data as object)[0][0] : JSON.parse(err.request.response).message) : "Something went wrong!",
-              });
+          postRequest('/chat/update-read-msg', {
+            target_code : selectedUser
+          }).catch((err) => {
+            toast({
+              variant: "destructive",
+              title: "Fail!",
+              description: JSON.parse(err.request.response).message != undefined ? (JSON.parse(err.request.response).message == "" ? Object.values(JSON.parse(err.request.response).data as object)[0][0]  : JSON.parse(err.request.response).message) : "Something went wrong!",
             });
-          }
+          });
           setMessages(dt)
           setCount((prev: any) => prev - 1)
           setLoading(false)

@@ -5,9 +5,9 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { cache } from "react";
 import NewsItem from "../../news/NewsItem";
-import SupplierItem from "@/app/(common)/(social)/supplier/SupplierItem";
+import SupplierItem from "@/app/[lang]/(common)/(social)/supplier/SupplierItem";
 const getDetail = cache(async (id: string) => {
-  const detail: any = await getRequest("/insight/opinio/" + id);
+  const detail: any = await getRequest("/insight/weekly-product-update/" + id);
   return detail?.data[0];
 });
 

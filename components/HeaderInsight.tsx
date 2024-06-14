@@ -21,9 +21,14 @@ import { NavigationMenuInsight } from "./MenuInsight";
 import SwitchRoleHearder from "./SwitchRoleHearder";
 import { formatRole } from "./HeaderSocial";
 import MessageList from "./Chat";
+import LocaleSelector from "./LocaleSelector";
+import getTranslation from "@/lib/i18n/getTranslation";
 
-const HeaderInsight = async () => {
+
+const HeaderInsight = async ({ params }: any) => {
   const session = await getServerSession(options);
+  const translation = await getTranslation(params.lang);
+
   return (
     <div className="border border-gray-200">
       <div className="container flex items-center justify-between py-4">
@@ -190,18 +195,13 @@ const HeaderInsight = async () => {
         </Link>
 
         <div className="!font-bold hidden md:block">
-          <NavigationMenuInsight />
+          <NavigationMenuInsight home={translation('nav.home.home')}/>
         </div>
         <div className="flex items-center gap-5 w-96 justify-end">
           <div className="gap-1 hidden lg:flex items-center">
-            <Image
-              src={"/flag.png"}
-              alt="flag"
-              width={20}
-              height={20}
-              className="w-5 h-5"
-            />
-            <div className="font-bold">EN</div>
+
+            <LocaleSelector lang={params?.lang}/>
+            <div className="font-bold">{params?.lang.toUpperCase()}</div>
           </div>
           {session?.user ? (
             <div className="flex gap-5 items-center">
