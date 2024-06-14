@@ -27,7 +27,7 @@ import getTranslation from "@/lib/i18n/getTranslation";
 
 const HeaderInsight = async ({ params }: any) => {
   const session = await getServerSession(options);
-  const translation = await getTranslation(params.lang);
+  const translation = await getTranslation(params.locale);
 
   return (
     <div className="border border-gray-200">
@@ -46,7 +46,7 @@ const HeaderInsight = async ({ params }: any) => {
           <SheetContent side="left">
             <div className="flex flex-col gap-4">
               <SheetClose asChild>
-                <Link href={"/"}>
+                <Link href={`${params.locale}/`}>
                   <Image
                     src={"/trade4go.png"}
                     alt="logo"
@@ -200,8 +200,8 @@ const HeaderInsight = async ({ params }: any) => {
         <div className="flex items-center gap-5 w-96 justify-end">
           <div className="gap-1 hidden lg:flex items-center">
 
-            <LocaleSelector lang={params?.lang}/>
-            <div className="font-bold">{params?.lang.toUpperCase()}</div>
+            <LocaleSelector lang={params?.locale}/>
+            <div className="font-bold">{params?.locale.toUpperCase()}</div>
           </div>
           {session?.user ? (
             <div className="flex gap-5 items-center">

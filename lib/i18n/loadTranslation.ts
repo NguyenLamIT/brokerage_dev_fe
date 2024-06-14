@@ -1,5 +1,5 @@
 import { Locale, i18nConfig } from '@/i18n';
-import { ObjectKeys } from '@/lib/utils/objectKeys';
+import { ObjectKeys } from '@/lib/i18n/objectKeys';
 
 // Contains functions to import translation .json files asynchrounously for specified locales.
 const translations = {

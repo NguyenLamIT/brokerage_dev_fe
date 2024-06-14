@@ -3,17 +3,16 @@
 import { i18nConfig } from '@/i18n';
 import redirectToLocale from '@/lib/i18n/redirectToLocale';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuTrigger } from './ui/dropdown-menu';
 import Image from 'next/image';
-
+import { setCookie } from 'cookies-next';
 
 
 export default function LocaleSelector({ lang }: any) {
 
     const pathname = usePathname();
-
+    const router = useRouter();
     const localeInfo = {
         en: {
             native: 'English',
@@ -39,7 +38,10 @@ export default function LocaleSelector({ lang }: any) {
                     <DropdownMenuGroup>
                         {i18nConfig.locales.map((locale, index) => {
                             return (
-                                <Link key={index} href={redirectToLocale(locale, pathname)}>
+                                <div key={index} onClick={()=>{
+                                    router.push(redirectToLocale(locale, pathname))
+                                    setCookie('locale', locale);
+                                }}>
                                     <li className="flex w-full gap-3 items-start justify-center px-3 py-1 hover:bg-neutral-100">
                                         <Image
                                             src={localeInfo[locale].image}
@@ -52,7 +54,7 @@ export default function LocaleSelector({ lang }: any) {
                                             {localeInfo[locale].english}
                                         </p>
                                     </li>
-                                </Link>
+                                </div>
                             );
                         })}
                     </DropdownMenuGroup>

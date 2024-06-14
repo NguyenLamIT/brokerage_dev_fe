@@ -1,5 +1,6 @@
 import { Locale, i18nConfig } from '@/i18n';
 import { match } from '@formatjs/intl-localematcher';
+//@ts-ignore
 import Negotiator from 'negotiator';
 import { NextRequest } from 'next/server';
 
@@ -19,7 +20,7 @@ export function getMatchingLocale(request: NextRequest): Locale {
 
   // Get all availabl locales from the client.
   const clientLocales = new Negotiator({ headers: userHeaders }).languages();
-
+  console.log(clientLocales)
   // Initialize app/server locales object.
   let appLocales: Locale[] = [];
 
@@ -27,7 +28,7 @@ export function getMatchingLocale(request: NextRequest): Locale {
   i18nConfig.locales.forEach((locale: Locale) => {
     appLocales.push(locale);
   });
-
+  
   // Call match function from intl-localematcher and get best matching locale
   // based on available client locales, app/server locales and app/server default locale.
   const localeMatch: Locale = match(

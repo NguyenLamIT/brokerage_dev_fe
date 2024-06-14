@@ -25,6 +25,7 @@ export default async function RootLayout({
     locale: Locale;
   };
 }>) {
+  console.log(params)
   return (
     <html lang={params.locale}>
       <body className={inter.className}>
