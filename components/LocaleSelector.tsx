@@ -3,7 +3,7 @@
 import { i18nConfig } from '@/i18n';
 import redirectToLocale from '@/lib/i18n/redirectToLocale';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuTrigger } from './ui/dropdown-menu';
 import Image from 'next/image';
 import { setCookie } from 'cookies-next';
@@ -12,6 +12,7 @@ import { setCookie } from 'cookies-next';
 export default function LocaleSelector({ lang }: any) {
 
     const pathname = usePathname();
+    const search = useSearchParams();
     const router = useRouter();
     const localeInfo = {
         en: {
@@ -38,10 +39,10 @@ export default function LocaleSelector({ lang }: any) {
                     <DropdownMenuGroup>
                         {i18nConfig.locales.map((locale, index) => {
                             return (
-                                <div key={index} onClick={()=>{
-                                    router.push(redirectToLocale(locale, pathname))
+                                <div key={index} onClick={() => {
+                                    router.push(window.location.origin + `/${locale}/` + pathname.split('/').slice(2,).join("/") + "?" + search.toString())
                                     setCookie('locale', locale);
-                                }}>
+                                }} className='cursor-pointer'>
                                     <li className="flex w-full gap-3 items-start justify-center px-3 py-1 hover:bg-neutral-100">
                                         <Image
                                             src={localeInfo[locale].image}
