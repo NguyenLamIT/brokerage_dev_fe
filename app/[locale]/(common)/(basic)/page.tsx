@@ -28,6 +28,7 @@ import SearchHome from "./SearchHome";
 import moment from "moment";
 import Autoplay from "embla-carousel-autoplay"
 import CarouseAutoPlay from "./CarouseAutoPlay";
+import ChartLine from "./Chart";
 
 
 
@@ -63,7 +64,7 @@ const Home = async () => {
     getRequest("/product/list?limit=6"),
     getRequest("/config/countries"),
     user ? getRequest("/rfq/list?limit=4") : null,
-    postRequest("/data/price-real-time", {}),
+    getRequest("/data/price-real-time"),
     getRequest("/insight/suggest?number_posts=5"),
     getRequest("/insight/trading?number_posts=6"),
   ]);
@@ -71,9 +72,13 @@ const Home = async () => {
   const products: IProduct[] = productData?.data;
   const countries: any[] = countryData?.data;
   const rfq: IRFQ[] = rfqData?.data;
-  const realtime: any[] = realTimeData?.data;
+  const realtime: any = realTimeData?.data;
   const suggest: any[] = suggestInsightData?.data;
   const trending: any[] = trendingData?.data;
+  const price_real_time : any[] = realtime?.price_real_time;
+  const home_price_data : any = realtime?.home_price_data?.homeDataPreview?.priceDataPreview;
+
+
   return (
     <div>
       <div className="w-full relative">
@@ -86,7 +91,7 @@ const Home = async () => {
         />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
           <div className="container w-[80%] flex flex-col gap-6 mx-auto">
-            <CarouseAutoPlay realtime={realtime} />
+            <CarouseAutoPlay realtime={price_real_time} />
             <SearchHome />
           </div>
         </div>
@@ -256,11 +261,11 @@ const Home = async () => {
                 </div>
               )}
               <div className="flex flex-col gap-3">
-                <div>
+                {/* <div>
                   <Button className="bg-[#2D9541] hover:bg-[#2D9541]">
                     Premium
                   </Button>
-                </div>
+                </div> */}
                 <div>
                   <p className="text-[#081342] font-bold text-3xl">
                     Price Data
@@ -270,13 +275,14 @@ const Home = async () => {
                   </p>
                   <p className="text-xl">India/Jaipur, Rajasthan</p>
                 </div>
-                <Image
+                {/* <Image
                   src={"/image.png"}
                   alt="image"
                   className="pt-1"
                   width={1000}
                   height={300}
-                />
+                /> */}
+                <ChartLine home_price_data={home_price_data}/>
               </div>
             </div>
           </div>
