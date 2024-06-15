@@ -112,7 +112,7 @@ const PostSocial = ({ dt, user }: { dt: any; user: any }) => {
           </DropdownMenu>
 
         </div>
-        <p className="text-lg">{dt.content}</p>
+        <p className="text-lg whitespace-pre-wrap">{dt.content}</p>
         <Common dt={dt} user={user} />
       </div>
     </div>
