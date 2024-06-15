@@ -191,30 +191,38 @@ const BuyerDetail = async ({ params, searchParams }: any) => {
                 <div className="pb-20 flex flex-col gap-4">
                   <div className="flex justify-between items-center">
                     <p className="text-3xl font-bold">RFQs</p>
-                    <Link
-                      href={"?type=rfqs"}
-                      className="flex gap-2 items-center"
-                    >
-                      View all{" "}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-4 h-4"
+                    {rfq?.length > 0 && (
+                      <Link
+                        href={"?type=rfqs"}
+                        className="flex gap-2 items-center"
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                        />
-                      </svg>
-                    </Link>
+                        View all{" "}
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
+                      </Link>
+                    )}
                   </div>
-                  {rfq.slice(0, 2).map((rfq: any) => (
-                    <RFQItem key={rfq.code} dt={rfq} user={user} />
-                  ))}
+                  {rfq?.length > 0 ? (
+                    rfq.slice(0, 2).map((rfq: any) => (
+                      <RFQItem key={rfq.code} dt={rfq} user={user} />
+                    ))
+                  ) : (
+                    <div className="text-lg text-[#8C8585]">
+                      There are no product to be shown yet.
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -341,33 +349,38 @@ const BuyerDetail = async ({ params, searchParams }: any) => {
                   Representatives
                 </p>
                 <div className="grid lg:grid-cols-2 gap-16">
-                  {representative.map((r: any, index: any) => (
-                    <div className="flex flex-col gap-4 border border-gray-300 p-3 rounded-md" key={index}>
-                      <div className="flex items-center gap-3">
-                        <Image
-                          src={r.avatar}
-                          alt={r.first_name}
-                          width={112}
-                          height={112}
-                          className="w-28 h-28 object-cover"
-                        />
-                        <p className="text-xl font-bold text-[#4A4A4A]">
-                          {r.first_name} · buyer
+                {representative.length > 0 ? (
+                    representative.map((r: any, index: any) => (
+                      <div className="flex flex-col gap-4 border border-gray-300 p-3 rounded-md" key={index}>
+                        <div className="flex items-center gap-3">
+                          <Image
+                            src={r.avatar}
+                            alt={r.first_name}
+                            width={112}
+                            height={112}
+                            className="w-28 h-28 object-cover"
+                          />
+                          <p className="text-xl font-bold text-[#4A4A4A]">
+                            {r.first_name} · buyer
+                          </p>
+                        </div>
+                        <Follow code={r?.code} followers={r?.followed_users} products={r?.products_followed} user={user} type="BUYER" />
+                        <p>
+                          Let's meet and discuss about your needs ! We have
+                          exclusive french wines that could fit your customers
+                          expectations.
                         </p>
+                        <div className="flex gap-5">
+                          {/* <Button variant={"outline"}>Book a Meeting</Button> */}
+                          <SendMessage user={r} />
+                        </div>
                       </div>
-                      <Follow code={r?.code} followers={r?.followed_users} products={r?.products_followed} user={user} type="BUYER" />
-
-                      <p>
-                        Let's meet and discuss about your needs ! We have
-                        exclusive french wines that could fit your customers
-                        expectations.
-                      </p>
-                      <div className="flex gap-5">
-                        {/* <Button variant={"outline"}>Book a Meeting</Button> */}
-                        <SendMessage user={r} />
-                      </div>
+                    ))
+                  ) : (
+                    <div className="text-lg text-[#8C8585]">
+                      There are no product to be shown yet.
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
@@ -388,30 +401,36 @@ const BuyerDetail = async ({ params, searchParams }: any) => {
             <p className="text-3xl font-bold">Contact buyer</p>
             <p className="text-lg text-[#ACADAF]">Representative</p>
             <div className="flex flex-col gap-6">
-              {representative.map((r: any, index: any) => (
-                <div
-                  className="flex gap-3 flex-col"
-                  key={index}
-                >
-                  <div className="flex gap-5 items-center">
-                    <Image
-                      src={r.avatar}
-                      alt={r.first_name}
-                      width={64}
-                      height={64}
-                      className="w-16 h-16"
-                    />
-                    <div>
-                      <p className="font-bold text-[#081440]">{r.first_name}</p>
-                      <p className="font-bold text-[#908E8E]">{r.email}</p>
-                      <p className="font-bold text-sm underline text-[#8C8585]">
-                        View detail
-                      </p>
+            {representative?.length > 0 ? (
+                representative.map((r: any, index: any) => (
+                  <div
+                    className="flex gap-3 flex-col"
+                    key={index}
+                  >
+                    <div className="flex gap-5 items-center">
+                      <Image
+                        src={r.avatar}
+                        alt={r.first_name}
+                        width={64}
+                        height={64}
+                        className="w-16 h-16"
+                      />
+                      <div>
+                        <p className="font-bold text-[#081440]">{r.first_name}</p>
+                        <p className="font-bold text-[#908E8E]">{r.email}</p>
+                        <p className="font-bold text-sm underline text-[#8C8585]">
+                          View detail
+                        </p>
+                      </div>
                     </div>
+                    <SendMessage user={r} />
                   </div>
-                  <SendMessage user={r} />
-                </div>
-              ))}
+                  ))
+                ) : (
+                  <div className="text-lg text-[#8C8585]">
+                    There are no product to be shown yet.
+                  </div>
+              )}
             </div>
           </div>
         </div>

@@ -223,129 +223,147 @@ const ProductDetail = async ({ params }: any) => {
             height={855}
             className="w-full h-auto"
           /> */}
-            <Table>
-              <TableHeader className="text-lg font-semibold">
-                <TableRow>
-                  <TableHead>Market</TableHead>
-                  <TableHead>Product / Variety</TableHead>
-                  <TableHead>Other Conditions</TableHead>
-                  <TableHead>Origin</TableHead>
-                  <TableHead>Last Reported Price</TableHead>
-                  <TableHead>Last Reported Date</TableHead>
-                  <TableHead>Price Type</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody className="text-lg">
-                {price_per_country.map((ppc: any, index: any) => (
-                  <TableRow key={index}>
-                    <TableCell className="font-medium">
-                      {ppc.country.name}
-                    </TableCell>
-                    <TableCell>{ppc.info.product_name}</TableCell>
-                    <TableCell>{ppc.info.other_condition}</TableCell>
-                    <TableCell>{ppc.info.origin}</TableCell>
-                    <TableCell>{ppc.info.last_reported_price}</TableCell>
-                    <TableCell>{ppc.info.last_reported_date}</TableCell>
-                    <TableCell>{ppc.info.price_type}</TableCell>
+            {price_per_country?.length > 0 ? (
+              <Table>
+                <TableHeader className="text-lg font-semibold">
+                  <TableRow>
+                    <TableHead>Market</TableHead>
+                    <TableHead>Product / Variety</TableHead>
+                    <TableHead>Other Conditions</TableHead>
+                    <TableHead>Origin</TableHead>
+                    <TableHead>Last Reported Price</TableHead>
+                    <TableHead>Last Reported Date</TableHead>
+                    <TableHead>Price Type</TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                  </TableHeader>
+                <TableBody className="text-lg">
+                  {price_per_country.map((ppc: any, index: any) => (
+                    <TableRow key={index}>
+                      <TableCell className="font-medium">
+                        {ppc.country.name}
+                      </TableCell>
+                      <TableCell>{ppc.info.product_name}</TableCell>
+                      <TableCell>{ppc.info.other_condition}</TableCell>
+                      <TableCell>{ppc.info.origin}</TableCell>
+                      <TableCell>{ppc.info.last_reported_price}</TableCell>
+                      <TableCell>{ppc.info.last_reported_date}</TableCell>
+                      <TableCell>{ppc.info.price_type}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            ) : (
+              <div className="text-lg text-[#8C8585]">
+                There are no product to be shown yet.
+              </div>
+            )}
           </div>
           <div className="pb-10 border-b border-gray-300  flex flex-col gap-4">
             <p className="text-3xl font-bold text-[#404040]  pb-4">
               Seasonality Data
             </p>
             <div className="md:px-14 flex flex-col gap-16 ">
-              {seasonality_data.map((seasonality: any, index: any) => {
-                const country = countries.find(
-                  (country) => country.code == seasonality.country.code
-                );
-                return (
-                  <div className="flex flex-col gap-7 border border-gray-300 p-3 rounded-md" key={index}>
-                    <div className="flex justify-between items-center">
-                      <p className="text-xl font-bold flex gap-1 items-center">
-                        <Image
-                          src={country?.image}
-                          alt="flag"
-                          width={21}
-                          height={18}
-                          className="w-7 h-6"
-                        />
-                        {seasonality.country.name}
-                      </p>
-                      {index == 0 ? (
-                        <Button>Hight Season</Button>
-                      ) : (
-                        <Button variant={"ghost"}>Off Season</Button>
-                      )}
+            {seasonality_data?.length > 0 ? (
+                seasonality_data.map((seasonality: any, index: any) => {
+                  const country = countries.find(
+                    (country) => country.code == seasonality.country.code
+                  );
+                  return (
+                    <div className="flex flex-col gap-7 border border-gray-300 p-3 rounded-md" key={index}>
+                      <div className="flex justify-between items-center">
+                        <p className="text-xl font-bold flex gap-1 items-center">
+                          <Image
+                            src={country?.image}
+                            alt="flag"
+                            width={21}
+                            height={18}
+                            className="w-7 h-6"
+                          />
+                          {seasonality.country.name}
+                        </p>
+                        {index == 0 ? (
+                          <Button>Hight Season</Button>
+                        ) : (
+                          <Button variant={"ghost"}>Off Season</Button>
+                        )}
+                      </div>
+                      <div className="grid grid-cols-3 lg:grid-cols-12 gap-1">
+                        {Object.keys(seasonality.month_status).map(
+                          (key: any, index: any) => (
+                            <div key={index}>
+                              <p className="font-bold text-xl text-center">
+                                {MONTH[index]}
+                              </p>
+                              <div
+                                className={`w-full h-3 ${seasonality.month_status[key] == 0
+                                  ? "bg-white"
+                                  : "bg-[#081440]"
+                                  } rounded-lg`}
+                              ></div>
+                            </div>
+                          )
+                        )}
+                      </div>
+                      {/* <p>VARIETIES: 1</p> */}
                     </div>
-                    <div className="grid grid-cols-3 lg:grid-cols-12 gap-1">
-                      {Object.keys(seasonality.month_status).map(
-                        (key: any, index: any) => (
-                          <div key={index}>
-                            <p className="font-bold text-xl text-center">
-                              {MONTH[index]}
-                            </p>
-                            <div
-                              className={`w-full h-3 ${seasonality.month_status[key] == 0
-                                ? "bg-white"
-                                : "bg-[#081440]"
-                                } rounded-lg`}
-                            ></div>
-                          </div>
-                        )
-                      )}
-                    </div>
-                    {/* <p>VARIETIES: 1</p> */}
-                  </div>
-                );
-              })}
+                  );
+                })
+              ) : (
+                <div className="text-lg text-[#8C8585]">
+                  There are no product to be shown yet.
+                </div>
+              )}
             </div>
           </div>
           <div className="flex flex-col gap-4">
             <p className="text-3xl font-bold text-[#404040]  pb-4">
               Relevant Content
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {suggest_new_list.map((data: any, index: any) => (
-                <Link key={index} href={`/${data?.content_type.split('_').join('-').toLowerCase()}/` + data?.title_slug} className="p-1" target="_blank">
-                  <div className="flex flex-col">
-                    <div className="py-[0.625rem]">
-                      <Badge> {data.content_type.split('_').join(" ")}</Badge>
-                    </div>
-                    <p className="font-bold text-xl line-clamp-2 min-h-[3.5rem]">
-                      {data.title}
-                    </p>
-                    <div className="flex justify-between font-bold text-gray-700  pt-[0.8125rem]">
-                      <div className="flex gap-[0.4375rem]">
-                        <Image
-                          src={"/penci.png"}
-                          alt="penci"
-                          width={24}
-                          height={24}
-                          className="w-6 h-6 object-cover"
-                        />
-                        <span className="text-bold">{data.author}</span>
+            {suggest_new_list?.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {suggest_new_list.map((data: any, index: any) => (
+                  <Link key={index} href={`/${data?.content_type.split('_').join('-').toLowerCase()}/` + data?.title_slug} className="p-1" target="_blank">
+                    <div className="flex flex-col">
+                      <div className="py-[0.625rem]">
+                        <Badge> {data.content_type.split('_').join(" ")}</Badge>
                       </div>
-                      <div className="flex gap-[0.4375rem]">
-                        <Image
-                          src={"/time.png"}
-                          alt="penci"
-                          width={24}
-                          height={24}
-                          className="w-6 h-6 object-cover"
-                        />
-                        <span>
-                          {moment(data.public_date, 'DD-MM-YYYY HH:mm:ss').format("MMM Do, YYYY")}
-                        </span>
-                        {/* <span>{data.public_date}</span> */}
+                      <p className="font-bold text-xl line-clamp-2 min-h-[3.5rem]">
+                        {data.title}
+                      </p>
+                      <div className="flex justify-between font-bold text-gray-700  pt-[0.8125rem]">
+                        <div className="flex gap-[0.4375rem]">
+                          <Image
+                            src={"/penci.png"}
+                            alt="penci"
+                            width={24}
+                            height={24}
+                            className="w-6 h-6 object-cover"
+                          />
+                          <span className="text-bold">{data.author}</span>
+                        </div>
+                        <div className="flex gap-[0.4375rem]">
+                          <Image
+                            src={"/time.png"}
+                            alt="penci"
+                            width={24}
+                            height={24}
+                            className="w-6 h-6 object-cover"
+                          />
+                          <span>
+                            {moment(data.public_date, 'DD-MM-YYYY HH:mm:ss').format("MMM Do, YYYY")}
+                          </span>
+                          {/* <span>{data.public_date}</span> */}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                    </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="text-lg text-[#8C8585]">
+                There are no product to be shown yet.
+              </div>
+            )}
           </div>
         </div>
         <div className="col-span-2 hidden md:block">
@@ -376,26 +394,28 @@ const ProductDetail = async ({ params }: any) => {
           </div>
         </div>
       </div>
-      {suggest_product_list.length > 0 && (
-        <div className="pb-14 border-b border-gray-300  flex flex-col gap-4 py-7">
-          <div className=" flex justify-between ">
-            <p className="text-3xl font-bold text-[#404040]  pb-4">
-              Other products from the supplier
-            </p>
-            <Link href={"/product?supplier_code=" + suggest_product_list[0].supplier_code}>View All</Link>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {suggest_product_list.slice(0, 4).map((pd: any) => {
-              const country = countries.find(
-                (country) => country.code == pd.origin_country.code
-              );
-              return (
-                <ProductItem key={pd.code} pd={pd} country={country} />
-              );
-            })}
-          </div>
+      <div className="pb-14 border-b border-gray-300  flex flex-col gap-4 py-7">
+        <div className=" flex justify-between ">
+          <p className="text-3xl font-bold text-[#404040]  pb-4">
+            Other products from the supplier
+          </p>
+          <Link href={"/product?supplier_code=" + suggest_product_list[0].supplier_code}>View All</Link>
         </div>
-      )}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {suggest_product_list?.length > 0 ? suggest_product_list.slice(0, 4).map((pd: any) => {
+            const country = countries.find(
+              (country) => country.code == pd.origin_country.code
+            );
+            return (
+              <ProductItem key={pd.code} pd={pd} country={country} />
+            );
+          }) : (
+            <div className="text-lg text-[#8C8585]">
+              There are no product to be shown yet.
+            </div>
+          )}
+        </div>
+      </div>
       <div className="pb-20 flex flex-col gap-4 py-7">
         <p className="text-3xl font-bold text-[#404040]  pb-4">Representatives</p>
         <div className="flex">
