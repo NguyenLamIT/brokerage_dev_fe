@@ -18,15 +18,19 @@ const ProductTab = async ({ user, id, countries }: any) => {
             <p className="text-3xl font-bold">Products</p>
             <div className="flex flex-col gap-3">
                 <div className='grid md:grid-cols-4 gap-10'>
-                    {products.map((pd: any, index: any) => {
+                    {products?.length > 0 ? products.map((pd: any, index: any) => {
                         const country = countries.find(
-                            (country:any) => country.code == pd.origin_country?.code
+                            (country: any) => country.code == pd.origin_country?.code
                         );
                         return (
                             <ProductItem key={index} pd={pd} country={country} />
 
                         );
-                    })}
+                    }) : (
+                        <div className="text-lg text-[#8C8585]">
+                            There are no product to be shown yet.
+                        </div>
+                    )}
                 </div>
                 <LoadMore
                     countries={countries}
