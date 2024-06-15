@@ -52,7 +52,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
 ];
 
-export function NavigationMenuInsight() {
+export function NavigationMenuInsight({home}:any) {
   return (
     <NavigationMenu className="z-50">
       <NavigationMenuList className="gap-10">
@@ -61,7 +61,7 @@ export function NavigationMenuInsight() {
             href="/"
             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
           >
-            Home
+            {home}
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
