@@ -8,8 +8,8 @@ const Common = ({
    content: TItemFaq[];
 }) => {
    return (
-      <div className="mt-[30px] mb-[50px] max-w-[736px]">
-         <p className="text-[1.5rem] pb-[30px] border-b-[1px] border-[#000]">{title}</p>
+      <div className="mt-[1.875rem] mb-[3.125rem] max-w-[46rem]">
+         <p className="text-[1.5rem] pb-[1.875rem] border-b border-[#000]">{title}</p>
          {content?.length > 0 && content?.map((item, index) => (
             <Item
                key={index}
