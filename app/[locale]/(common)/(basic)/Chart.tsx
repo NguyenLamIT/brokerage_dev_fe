@@ -71,7 +71,7 @@ const ChartLine = ({ home_price_data }: any) => {
 
     } as any
     return (
-        <div className='p-4 bg-gray-100 rounded-md py-16'>
+        <div className='p-4 bg-gray-100 rounded-md py-8'>
             <div className='flex flex-col gap-12'>
                 <div className='grid grid-cols-2 gap-4'>
                     <div>
