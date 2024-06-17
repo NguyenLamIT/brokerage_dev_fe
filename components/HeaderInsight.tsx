@@ -228,7 +228,7 @@ const HeaderInsight = async ({ params }: any) => {
                       </DropdownMenuItem>
                     </Link>
                     <div>
-                      <SwitchRoleHearder />
+                      <SwitchRoleHearder lang={params?.locale}/>
                     </div>
                   </DropdownMenuGroup>
                   <DropdownMenuSeparator />

@@ -22,7 +22,7 @@ import { useToast } from "./ui/use-toast";
 import { ToastAction } from "./ui/toast";
 import { useRouter } from "next/navigation";
 
-const SwitchRoleHearder = () => {
+const SwitchRoleHearder = ({ lang }:any) => {
   const [btnBuyLoading, setBtnBuyLoading] = useState(false);
   const [btnSellLoading, setBtnSellLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -49,14 +49,14 @@ const SwitchRoleHearder = () => {
           action: <ToastAction altText="Try again">Done</ToastAction>,
         });
         if (
-          window.location.pathname == "/social/company-profile" &&
+          window.location.pathname == `/${lang}/social/company-profile` &&
           payload.role == "BUYER"
         ) {
           setTimeout(() => {
             window.location.href = "/social/buyer-profile";
           }, 500);
         } else if (
-          window.location.pathname == "/social/buyer-profile" &&
+          window.location.pathname == `/${lang}/social/buyer-profile` &&
           payload.role == "SELLER"
         ) {
           setTimeout(() => {
@@ -73,7 +73,7 @@ const SwitchRoleHearder = () => {
       toast({
         variant: "destructive",
         title: "Fail!",
-        description: JSON.parse(err.request.response).message!=undefined?(JSON.parse(err.request.response).message==""?Object.values(JSON.parse(err.request.response).data as object)[0][0] :JSON.parse(err.request.response).message):"Something went wrong!",
+        description: JSON.parse(err.request.response).message != undefined ? (JSON.parse(err.request.response).message == "" ? Object.values(JSON.parse(err.request.response).data as object)[0][0] : JSON.parse(err.request.response).message) : "Something went wrong!",
       });
     });
   };
