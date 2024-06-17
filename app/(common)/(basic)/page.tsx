@@ -75,8 +75,8 @@ const Home = async () => {
   const realtime: any = realTimeData?.data;
   const suggest: any[] = suggestInsightData?.data;
   const trending: any[] = trendingData?.data;
-  const price_real_time : any[] = realtime?.price_real_time;
-  const home_price_data : any = realtime?.home_price_data?.homeDataPreview?.priceDataPreview;
+  const price_real_time: any[] = realtime?.price_real_time;
+  const home_price_data: any = realtime?.home_price_data?.homeDataPreview?.priceDataPreview;
 
 
   return (
@@ -260,16 +260,16 @@ const Home = async () => {
                   <Separator className="my-10 bg-[#081342]" />
                 </div>
               )}
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-10">
                 {/* <div>
                   <Button className="bg-[#2D9541] hover:bg-[#2D9541]">
                     Premium
                   </Button>
                 </div> */}
+                <p className="text-[#081342] font-bold text-3xl">
+                  Price Data
+                </p>
                 <div>
-                  <p className="text-[#081342] font-bold text-3xl">
-                    Price Data
-                  </p>
                   <p className="text-xl">
                     Millet / Pearl / FAQ / Other Variety: Other ....{" "}
                   </p>
@@ -282,7 +282,7 @@ const Home = async () => {
                   width={1000}
                   height={300}
                 /> */}
-                <ChartLine home_price_data={home_price_data}/>
+                <ChartLine home_price_data={home_price_data} />
               </div>
             </div>
           </div>
