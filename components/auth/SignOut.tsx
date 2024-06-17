@@ -1,11 +1,11 @@
 "use client";
 import { signOut } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 const SignOut = () => {
   return (
     <div
+      className="w-full"
       onClick={async () => {
         await signOut({ redirect: false });
         setTimeout(() => {
