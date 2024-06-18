@@ -17,12 +17,11 @@ const Footer = () => {
           <div className='flex flex-col md:flex-row  gap-16 text-[#939AA1] font-bold uppercase'>
             <Link href={'/faq'}>FAQ</Link>
             <Link href={'/contact-us'}>Contact Us</Link>
-            <p>About Trade4go</p>
+            <Link href={'/about-us'}>About Trade4go</Link>
             <p>Expertise exchangwe</p>
           </div>
         </div>
       </div>
-
     </div>
   )
 }

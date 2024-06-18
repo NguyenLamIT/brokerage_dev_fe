@@ -102,6 +102,8 @@ const config = {
       },
       backgroundImage: {
         login: "url('/images/login/background.png')",
+        about: "url('/bg-about.png')",
+        bridging: "url('/bridging.png')"
       },
     },
   },
