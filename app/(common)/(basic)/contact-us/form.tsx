@@ -14,8 +14,10 @@ import { Button } from "@/components/ui/button";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-const ContactUs = () => {
+const FormContactUs = ({ user, country }: any) => {
+   console.log(user)
    const formSchema = z
       .object({
          firstName: z.string().min(1, "Required"),
@@ -29,6 +31,7 @@ const ContactUs = () => {
                message: "Invalid email",
             }),
          phoneNumber: z.string(),
+         code: z.string(),
          context: z.string().min(1, "Required"),
          messages: z.string().min(1, "Required"),
       })
@@ -36,12 +39,12 @@ const ContactUs = () => {
    const form = useForm<z.infer<typeof formSchema>>({
       resolver: zodResolver(formSchema),
       defaultValues: {
-         firstName: "",
-         lastName: "",
-         companyName: "",
-         businessName: "",
-         businessEmail: "",
-         phoneNumber: "",
+         firstName: user?.first_name,
+         lastName: user?.last_name,
+         companyName: user?.company?.name,
+         businessEmail: user?.email,
+         phoneNumber: user?.phone?.phone,
+         code: user?.phone?.code,
          context: "",
          messages: ""
       }
@@ -52,13 +55,13 @@ const ContactUs = () => {
    };
 
    return (
-      <div className="container">
-         <div className="py-[4.3125rem]">
-            <p className="text-[2rem] font-bold text-[#081440]">Contact Us</p>
+      <div className="container flex flex-col justify-center items-center">
+         <div className="py-[4.3125rem] md:w-1/2">
+            <p className="text-6xl font-bold text-[#081440]">Contact Us</p>
          </div>
          <Form {...form}>
             <form
-               className="max-w-[46rem] mb-[3.125rem]"
+               className="md:w-1/2 mb-[3.125rem]"
                onSubmit={form.handleSubmit(handleSubmit)}
             >
                <div className="grid lg:grid-cols-2 gap-3">
@@ -138,30 +141,6 @@ const ContactUs = () => {
                />
                <FormField
                   control={form.control}
-                  name="businessName"
-                  render={({ field }: any) => {
-                     return (
-                        <FormItem className="flex flex-col w-full mb-4">
-                           <FormLabel className="text-xl font-bold text-[#081342]">
-                              Business Name <span className="text-red-500">*</span>
-                           </FormLabel>
-                           <FormControl>
-                              <Input
-                                 placeholder="Enter business name"
-                                 type="text"
-                                 {...field}
-                                 className={`border !w-full !h-[38px] !text-[#081342] !text-[14px] 
-                                    ${form.formState.errors.businessName ? 'border-[red]' : 'border-#939AA1'}`
-                                 }
-                              />
-                           </FormControl>
-                           <FormMessage className="text-sm" />
-                        </FormItem>
-                     );
-                  }}
-               />
-               <FormField
-                  control={form.control}
                   name="businessEmail"
                   render={({ field }: any) => {
                      return (
@@ -184,39 +163,70 @@ const ContactUs = () => {
                      );
                   }}
                />
-               <FormField
-                  control={form.control}
-                  name="phoneNumber"
-                  render={({ field }: any) => {
-                     return (
-                        <FormItem className="flex flex-col w-full mb-4">
-                           <FormLabel className="text-xl font-bold text-[#081342]">
-                              Direct Phone Number
-                           </FormLabel>
-                           <FormControl>
-                              <div className="flex items-center gap-px text-[14px]">
-                                 <select className="h-[38px] border rounded-md">
-                                    <option value="">Country</option>
-                                    <option value="+84">{"Vietnam VN (+84)"}</option>
-                                    <option value="+54">{"Argentina AR (+54)"}</option>
-                                    <option value="+55">{"Brazil BR (+55)"}</option>
-                                    <option value="+852">{"Hong Kong HK (+852)"}</option>
-                                 </select>
-                                 <Input
-                                    placeholder="Enter phone number"
-                                    type="text"
-                                    {...field}
-                                    className={`border !w-full !h-[38px] !text-[#081342] !text-[14px] 
+               <FormLabel className="text-xl font-bold text-[#081342]">
+                  Direct Phone Number
+               </FormLabel>
+               <div className="flex gap-4 pt-2">
+                  <FormField
+                     control={form.control}
+                     name="code"
+                     render={({ field }) => {
+                        return (
+                           <FormItem className="w-1/4">
+                              <Select
+                                 onValueChange={field.onChange}
+                                 value={field.value}
+                              >
+                                 <FormControl>
+                                    <SelectTrigger className=" !h-[3.2rem] text-[#000000] !text-xl !font-sans">
+                                       <SelectValue placeholder="Nation code" />
+                                    </SelectTrigger>
+                                 </FormControl>
+                                 <SelectContent className=" text-[#000000] text-xl">
+                                    <SelectGroup>
+                                       {country?.data.map((e: any, index: any) => (
+                                          <SelectItem
+                                             key={index}
+                                             value={e.dial_code}
+                                          >
+                                             <div className="flex gap-2 w-full items-center text-lg">
+                                                <span>{e.dial_code}</span>
+                                             </div>
+                                          </SelectItem>
+                                       ))}
+                                    </SelectGroup>
+                                 </SelectContent>
+                              </Select>
+                              <FormMessage />
+                           </FormItem>
+                        );
+                     }}
+                  ></FormField>
+                  <FormField
+                     control={form.control}
+                     name="phoneNumber"
+                     render={({ field }: any) => {
+                        return (
+                           <FormItem className="flex flex-col w-full mb-4">
+
+                              <FormControl>
+                                 <div className="flex items-center gap-px text-[14px]">
+                                    <Input
+                                       placeholder="Enter phone number"
+                                       type="text"
+                                       {...field}
+                                       className={`border !w-full !h-[38px] !text-[#081342] !text-[14px] 
                                        ${form.formState.errors.phoneNumber ? 'border-[red]' : 'border-#939AA1'}`
-                                    }
-                                 />
-                              </div>
-                           </FormControl>
-                           <FormMessage className="text-sm" />
-                        </FormItem>
-                     );
-                  }}
-               />
+                                       }
+                                    />
+                                 </div>
+                              </FormControl>
+                              <FormMessage className="text-sm" />
+                           </FormItem>
+                        );
+                     }}
+                  />
+               </div>
                <FormField
                   control={form.control}
                   name="context"
@@ -292,4 +302,4 @@ const ContactUs = () => {
    )
 };
 
-export default ContactUs;
+export default FormContactUs;
