@@ -16,8 +16,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-const FormContactUs = ({ user, country }: any) => {
-   console.log(user)
+const FormContactUs = ({ user, country, about }: any) => {
    const formSchema = z
       .object({
          firstName: z.string().min(1, "Required"),
@@ -56,12 +55,15 @@ const FormContactUs = ({ user, country }: any) => {
 
    return (
       <div className="container flex flex-col justify-center items-center">
-         <div className="py-[4.3125rem] md:w-1/2">
-            <p className="text-6xl font-bold text-[#081440]">Contact Us</p>
-         </div>
+         {
+            !about &&
+            <div className="py-[4.3125rem] md:w-1/2">
+               <p className="text-6xl font-bold text-[#081440]">Contact Us</p>
+            </div>
+         }
          <Form {...form}>
             <form
-               className="md:w-1/2 mb-[3.125rem]"
+               className={`${about ? "w-full": "md:w-1/2"} mb-[3.125rem]`}
                onSubmit={form.handleSubmit(handleSubmit)}
             >
                <div className="grid lg:grid-cols-2 gap-3">
