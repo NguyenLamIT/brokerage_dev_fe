@@ -1,4 +1,4 @@
-import Item, { TItemFaq } from "@/app/(common)/(social)/faq/item";
+import Item, { TItemFaq } from "./item";
 
 const Common = ({
    title,
@@ -8,7 +8,7 @@ const Common = ({
    content: TItemFaq[];
 }) => {
    return (
-      <div className="mt-[1.875rem] mb-[3.125rem] max-w-[46rem]">
+      <div className="mt-[1.875rem] mb-[3.125rem]">
          <p className="text-[1.5rem] pb-[1.875rem] border-b border-[#000]">{title}</p>
          {content?.length > 0 && content?.map((item, index) => (
             <Item

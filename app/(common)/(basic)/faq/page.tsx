@@ -1,16 +1,16 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Common from "@/app/(common)/(social)/faq/common";
+import Common from "./common";
 import { faqAnalytics, faqFind, faqGeneral, faqInsights } from "@/const/faq";
 import Link from "next/link";
 
 const Faq = () => {
 
    return (
-      <div className="container">
-         <div className="pt-[4.3125rem]">
-            <p className="text-[2rem] font-bold text-[#081440]">FAQ</p>
+      <div className="container flex flex-col items-center justify-center">
+         <div className="pt-[4.3125rem] md:w-1/2">
+            <p className="text-6xl font-bold text-[#081440] w-full">FAQ</p>
          </div>
-         <Tabs defaultValue="all" className="w-full mt-5">
+         <Tabs defaultValue="all" className="md:w-1/2 mt-5">
             <TabsList className="bg-transparent flex flex-wrap justify-start gap-2.5 h-fit">
                <TabsTrigger value="all" className="rounded-2xl">All</TabsTrigger>
                <TabsTrigger value="general" className="rounded-2xl">General</TabsTrigger>
@@ -18,7 +18,7 @@ const Faq = () => {
                <TabsTrigger value="data-and-analytics" className="rounded-2xl">Data & Analytics</TabsTrigger>
                <TabsTrigger value="insights" className="rounded-2xl">Insights</TabsTrigger>
             </TabsList>
-            <div className="container">
+            <div className="w-full">
                <TabsContent value="all">
                   <Common title={"General"} content={faqGeneral} />
                   <Common title={"Find Suppliers / Find Buyers"} content={faqFind} />
