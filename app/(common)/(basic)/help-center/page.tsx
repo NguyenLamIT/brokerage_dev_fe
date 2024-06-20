@@ -31,7 +31,7 @@ const helps = [
 const HelpCenter = () => {
     return (
         <div className='w-full'>
-            <div className='relative z-30 h-96'>
+            <div className='relative z-`0 h-96'>
                 <div className='z-10 absolute top-0 right-0 w-full h-full flex items-center'>
                     <h1 className='text-6xl text-white container'>How can we help you?</h1>
                 </div>

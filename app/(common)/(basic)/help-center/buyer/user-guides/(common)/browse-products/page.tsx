@@ -6,7 +6,7 @@ const BrowseProducts = () => {
     return (
         <div className='text-xl'>
             <h2 className="pt-10 pb-6 ">Search for products</h2>
-            <div className="pb-2">How to search for products in Tridge:</div>
+            <div className="pb-2">How to search for products in Trade4go :</div>
             <ol className="list-decimal text-xl flex flex-col gap-2 px-6">
                 <li className="pl-4">Click the search field at the top of <Link color="primary" className="text-blue-800" href="/find-suppliers">Find Suppliers</Link>.</li>
                 <li className="pl-4">Type what you are looking for.</li>

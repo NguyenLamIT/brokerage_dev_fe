@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Getting Started",
+        "child": [
+            {
+                "title": "Register as a seller",
+                "des": "Join Tridge as a seller.",
+                "href": "/help-center/seller/user-guides/register"
+            },
+            {
+                "title": "Publish your basic supplier profile",
+                "des": "Start connecting on Tridge.",
+                "href": "/help-center/seller/user-guides/basic"
+            }
+        ]
+    },
+    {
+        "title": "Connecting with Buyers",
+        "child": [
+            {
+                "title": "Submit quotes to buyers’ RFQs",
+                "des": "Find the RFQs for the product you offer and directly submit a quote to a buyer.",
+                "href": "/help-center/seller/user-guides/rfqs"
+            },
+            {
+                "title": "Receive messages",
+                "des": "Connect in real-time with other industry players through the messaging feature.",
+                "href": "/help-center/seller/user-guides/receive"
+            },
+            {
+                "title": "Send messages",
+                "des": "Proactively reach out to potential business partners by sending a message.",
+                "href": "/help-center/seller/user-guides/send"
+            }
+        ]
+    },
+    {
+        "title": "Utilizing Feed",
+        "child": [
+            {
+                "title": "Create posts",
+                "des": "Start connecting and networking with other users on feed.",
+                "href": "/help-center/seller/user-guides/posts"
+            },
+            {
+                "title": "Customize your feed",
+                "des": "Manage the content that appears on your feed.",
+                "href": "/help-center/seller/user-guides/customize"
+            }
+        ]
+    }
+]

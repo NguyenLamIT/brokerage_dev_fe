@@ -6,7 +6,7 @@ const Register = () => {
     <div>
       <h2>Signing up as a buyer</h2>
       <div className="text-xl py-4 pt-8">
-        How to create a buyer account on Tridge:
+        How to create a buyer account on Trade4go :
       </div>
       <ol className="list-decimal text-xl flex flex-col gap-2 px-4">
         <li className="pl-4">Enter your work email address and password.</li>
@@ -34,7 +34,7 @@ const Register = () => {
       </ol>
       <div className="pt-6">
         <span className="text-xl">
-          Note: If you have not registered with a Tridge-verified work email,
+          Note: If you have not registered with a Trade4go -verified work email,
           you need to upload business documents to become a verified buyer.
           Click{" "}
           <Link

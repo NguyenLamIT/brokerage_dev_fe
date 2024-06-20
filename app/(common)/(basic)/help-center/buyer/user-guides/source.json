@@ -4,12 +4,12 @@
         "child": [
             {
                 "title": "Register as a buyer",
-                "des": "Join Tridge as a buyer.",
+                "des": "Join Trade4go  as a buyer.",
                 "href": "/help-center/buyer/user-guides/register"
             },
             {
-                "title": "Get access to Tridge's B2B Marketplace",
-                "des": "Become a verified buyer and add a product of interest to get access to Tridge's B2B Marketplace.",
+                "title": "Get access to Trade4go 's B2B Marketplace",
+                "des": "Become a verified buyer and add a product of interest to get access to Trade4go 's B2B Marketplace.",
                 "href": "/help-center/buyer/user-guides/verification"
             }
         ]
