@@ -5,10 +5,10 @@ const Register = () => {
   return (
     <div>
       <h2>Signing up as a buyer</h2>
-      <div className="text-2xl py-4 pt-8">
+      <div className="text-xl py-4 pt-8">
         How to create a buyer account on Tridge:
       </div>
-      <ol className="list-decimal text-2xl flex flex-col gap-2 px-4">
+      <ol className="list-decimal text-xl flex flex-col gap-2 px-4">
         <li className="pl-4">Enter your work email address and password.</li>
         <li className="pl-4">
           Choose your company from the provided list of companies that share the
@@ -33,7 +33,7 @@ const Register = () => {
         </li>
       </ol>
       <div className="pt-6">
-        <span className="text-2xl">
+        <span className="text-xl">
           Note: If you have not registered with a Tridge-verified work email,
           you need to upload business documents to become a verified buyer.
           Click{" "}
