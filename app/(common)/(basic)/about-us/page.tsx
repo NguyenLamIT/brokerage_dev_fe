@@ -21,25 +21,24 @@ const dataStatistical = [
 ];
 
 const dataBusiness = [
-   { id: 1, title: "Actionable agri-food data", content: "Access comprehensive global agri-food data, cleaned, processed, and streamlined to be immediately actionable." },
-   { id: 2, title: "Expert global intelligence", content: "Use extensive content from Tridge global analysts to stay up-to-date with the latest industry trends and developments." },
+   { id: 1, title: "Actionable products data", content: "Access comprehensive global products data, good price, processed, and streamlined to be immediately actionable." },
+   { id: 2, title: "Expert global intelligence", content: "Use extensive content from Trade4go global analysts to stay up-to-date with the latest industry trends and developments." },
    { id: 3, title: "Connect with buyer", content: "Connect with reliable, long-term buyers through the first data-powered B2B agri platform built on trust." },
-   { id: 4, title: "Connect with supplier", content: "Discover long-term, quality suppliers on the first data-powered B2B agri platform designed for trust." },
-   { id: 5, title: "End-to-end fulfillment", content: "Engage in safe and guaranteed global trades through the help of Tridge fulfillment experts across the globe." }
+   { id: 4, title: "Connect with supplier", content: "Discover long-term, quality suppliers on the first data-powered B2B agri platform designed for trust." }
 ];
 
 const dataFeedback = [
    {
       id: 1,
-      image: <Image width={80} height={80} alt="Nonghyup Moguchon utilized Tridge's Transaction Data Service (TDS) to discover and identify domestic importers of raw and subsidiary materials necessary for production. This enabled us to gain negotiating power and procure high-quality products at a reasonable price." src="/m.png" className="w-full h-full" />,
-      content: "Nonghyup Moguchon utilized Tridge's Transaction Data Service (TDS) to discover and identify domestic importers of raw and subsidiary materials necessary for production. This enabled us to gain negotiating power and procure high-quality products at a reasonable price.",
+      image: <Image width={80} height={80} alt="Nonghyup Moguchon utilized Trade4go's Transaction Data Service (TDS) to discover and identify domestic importers of raw and subsidiary materials necessary for production. This enabled us to gain negotiating power and procure high-quality products at a reasonable price." src="/m.png" className="w-full h-full" />,
+      content: "Nonghyup Moguchon utilized Trade4go's Transaction Data Service (TDS) to discover and identify domestic importers of raw and subsidiary materials necessary for production. This enabled us to gain negotiating power and procure high-quality products at a reasonable price.",
       customer: "Kim Yong-hwi",
       position: "Purchasing Manager at Moguchon, South Korea"
    },
    {
       id: 2,
-      image: <Image width={80} height={80} alt="Through Tridge's data, Damtuh not only reduced costs but also received assistance in expanding export channels." src="/t.png" className="w-full h-full" />,
-      content: "Through Tridge's data, Damtuh not only reduced costs but also received assistance in expanding export channels.",
+      image: <Image width={80} height={80} alt="Through Trade4go's data, Damtuh not only reduced costs but also received assistance in expanding export channels." src="/t.png" className="w-full h-full" />,
+      content: "Through Trade4go's data, Damtuh not only reduced costs but also received assistance in expanding export channels.",
       customer: "Jeong Tae-won",
       position: "Director of Development at Damtuh, South Korea"
    },
@@ -58,11 +57,8 @@ export const dataSolutions = [
    { id: 4, name: "Manufacturers" },
    { id: 5, name: "Distributors" },
    { id: 6, name: "Logistics" },
-   { id: 7, name: "Farmers" },
-   { id: 8, name: "Financial institutions" },
-   { id: 9, name: "Consulting firms" },
-   { id: 10, name: "Academic institutions" },
-   { id: 11, name: "Government agencies" }
+   { id: 7, name: "Consulting firms" },
+   { id: 8, name: "Government agencies" }
 ];
 
 
@@ -81,14 +77,10 @@ const AboutUs = async () => {
             <div className="container flex justify-center">
                <div className="max-w-[98rem] w-full grid grid-cols-1 lg:grid-cols-2 lg:px-9">
                   <div className="font-semibold">
-                     <div className="text-[#b6b9be] text-[4rem]">Reliable agri-food</div>
+                     <div className="text-[#b6b9be] text-[4rem]">Reliable agri-food & other products &</div>
                      <div className="text-[#b6b9be] text-[4rem]">data & intelligence for</div>
                      <TextSolution dataSolutions={dataSolutions} />
-                     <div className="text-[#b6b9be] text-[1.6rem] mt-5">Transform the way you work with trusted, global agri-food data and networking solutions from Tridge.</div>
-                     <div className="flex gap-4 items-center text-[1.2rem] my-[3rem]">
-                        <div className="cusor-pointer p-4 bg-[#6685FF] text-white cursor-pointer">Get started now</div>
-                        <div className="cusor-pointer p-4 bg-white cursor-pointer">Contact sales</div>
-                     </div>
+                     <div className="text-[#b6b9be] text-[1.6rem] mt-5">Transform the way you work with trusted, global products data and networking solutions from Trade4go.</div>
                   </div>
                   <div className="lg:h-[40rem]">
                      <Video />
@@ -289,36 +281,16 @@ const AboutUs = async () => {
                </div>
             </div>
          </div>
-         <div className="container py-8 lg:py-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:px-[8.7rem]">
-               <div className="flex flex-col justify-center md:px-[2.5rem]">
-                  <div className="w-[2rem] h-[2rem] bg-[#2c2ff2]"></div>
-                  <h2 className="mt-[2rem]">Learn from out experts</h2>
-                  <div className="flex items-center w-fit justify-center px-4 py-3 border border-[#B9BABC] text-[1.2rem] font-semibold mt-[2rem] lg:mt-[3.33rem]">
-                     Go to Learning Center
-                     <ArrowRight strokeWidth={1.5} />
-                  </div>
-               </div>
-               <Image
-                  width={640}
-                  height={420}
-                  alt="academy"
-                  src="/academy.png"
-                  className="w-[100%] lg:max-w-[40rem]"
-               />
-            </div>
-         </div>
          <div className="bg-bridging bg-cover bg-center py-32 lg:py-56">
             <div className="text-center">
                <h2 className="text-[#8f9399]">By bridging the data gap, we fight information inequality and</h2>
-               <h2 className="text-white mt-[0.5rem]">create a better agri-food supply chain for all</h2>
+               <h2 className="text-white mt-[0.5rem]">create a better agri-food & other products supply chain for all</h2>
             </div>
          </div>
          <div className="py-8 lg:py-16">
             <div className="container grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-[98.67rem] mx-auto">
                <div className="font-semibold text-[3rem]">Get in touch with us to learn more about our solutions</div>
                <FormContactUs user={user} country={country} about={true}/>
-
             </div>
          </div>
       </div>

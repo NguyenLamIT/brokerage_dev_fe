@@ -13,7 +13,7 @@ const UserGuide = () => {
     return (
         <div className='container py-20 flex flex-col gap-10 md:w-2/3'>
             <h1 className='text-5xl'>User Guide for Buyers</h1>
-            <h5>Everything buyers need to know to get started in Tridge</h5>
+            <h5>Everything buyers need to know to get started in Trade4go</h5>
             {
                 userGuide.map(guide => (<div key={guide.title} className='pb-10'>
                     <h2 className='py-10 border-t border-black'>{guide.title}</h2>

@@ -4,12 +4,12 @@
         "child": [
             {
                 "title": "Register as a seller",
-                "des": "Join Tridge as a seller.",
+                "des": "Join Trade4go as a seller.",
                 "href": "/help-center/seller/user-guides/register"
             },
             {
                 "title": "Publish your basic supplier profile",
-                "des": "Start connecting on Tridge.",
+                "des": "Start connecting on Trade4go.",
                 "href": "/help-center/seller/user-guides/basic"
             }
         ]

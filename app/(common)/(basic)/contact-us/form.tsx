@@ -265,7 +265,7 @@ const FormContactUs = ({ user, country, about }: any) => {
                   }}
                />
                <div className="p-[10px] rounded-md bg-[#f0f2f4] mb-4">
-                  If you want to contact for media or press, it is faster to email press@tridge.com
+                  If you want to contact for media or press, it is faster to email admin@trade4go.com
                </div>
                <FormField
                   control={form.control}
@@ -291,7 +291,7 @@ const FormContactUs = ({ user, country, about }: any) => {
                      );
                   }}
                />
-               <div className="my-[20px]">By continuing, you agree to Tridge's Privacy Policy.</div>
+               <div className="my-[20px]">By continuing, you agree to Trade4go's Privacy Policy.</div>
                <Button
                   className="h-[38px] text-[13px]"
                   type="submit"

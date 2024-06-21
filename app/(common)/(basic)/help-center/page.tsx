@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 const helps = [
     {
         title: "Buyers’ Guide",
-        des: "Everything buyers need to know to get started in Tridge",
+        des: "Everything buyers need to know to get started in Trade4go",
         href: "/help-center/buyer/user-guides"
     },
     {
         title: "Suppliers’ Guide",
-        des: "Everything suppliers need to know to get started in Tridge.",
+        des: "Everything suppliers need to know to get started in Trade4go.",
         href: "/help-center/seller/user-guides"
     },
     {
