@@ -165,102 +165,102 @@ const AboutUs = async () => {
                </div>
             </div>
          </div>
-         <div className="bg-[#22252b] py-8 lg:py-16">
+         <div className="bg-white py-8 lg:py-16">
             <div className="container lg:px-[12rem]">
-               <h3 className="text-white text-center">Key clients who've placed their trust in us</h3>
+               <h3 className="text-center">Key clients who've placed their trust in us</h3>
                <div className="mt-8 lg:mt-16">
                   <div>
                      <div className="mb-2"
                      >
                         <div className="flex flex-wrap items-center justify-center lg:mx-[-2rem] lg:mt-[-2rem] mx-[-1.3rem] mt-[-1.3rem]">
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"kpmg"} src={"/images/logo/kpmg.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"nestle"} src={"/images/logo/nestle.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"agrana"} src={"/images/logo/agrana.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"bidfood"} src={"/images/logo/bidfood.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"carrefour"} src={"/images/logo/carrefour.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"costco"} src={"/images/logo/costco.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"delmonte"} src={"/images/logo/delmonte.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"dole"} src={"/images/logo/dole.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"keelings"} src={"/images/logo/keelings.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"mitsui"} src={"/images/logo/mitsui.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"morrisons"} src={"/images/logo/morrisons.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"sysco"} src={"/images/logo/sysco.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"walmart"} src={"/images/logo/walmart.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"accenture"} src={"/images/logo/accenture.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"bain & company"} src={"/images/logo/bain.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"bcg"} src={"/images/logo/bcg.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"columbia"} src={"/images/logo/columbia.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"deloitte"} src={"/images/logo/deloitte.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"parthenon"} src={"/images/logo/parthenon.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"fao"} src={"/images/logo/fao.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"harvard"} src={"/images/logo/harvard.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"monetary"} src={"/images/logo/monetary.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"kearney"} src={"/images/logo/kearney.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"mckinsey"} src={"/images/logo/mckinsey.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"princeton"} src={"/images/logo/princeton.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"pwc"} src={"/images/logo/pwc.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"singapore"} src={"/images/logo/singapore.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"stanford"} src={"/images/logo/stanford.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"worldbank"} src={"/images/logo/worldbank.png"} className={`w-full h-full`} />
                            </div>
-                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem]">
+                           <div className="inline-block lg:mx-[2rem] lg:mt-[2rem] mx-[1.3rem] mt-[1.3rem] bg-[#22252b] rounded-sm p-2">
                               <Image width={80} height={80} alt={"yale"} src={"/images/logo/yale.png"} className={`w-full h-full`} />
                            </div>
                         </div>

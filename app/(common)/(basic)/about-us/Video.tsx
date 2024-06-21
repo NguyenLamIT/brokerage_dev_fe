@@ -2,11 +2,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const dataVideo = [
-    "https://cdn-new.tridge.com/assets/TXDBRA4X.mp4",
-    "https://cdn-new.tridge.com/assets/VB2KXQCW.mp4",
-    "https://cdn-new.tridge.com/assets/ABH256DY.mp4",
-    "https://cdn-new.tridge.com/assets/UYBGOQ4J.mp4",
-    "https://cdn-new.tridge.com/assets/3LAURKWX.mp4"
+    "/video/TXDBRA4X.mp4",
+    "/video/VB2KXQCW.mp4",
+    "/video/ABH256DY.mp4",
+    "/video/UYBGOQ4J.mp4",
+    "/video/3LAURKWX.mp4"
  ]
  
 
