@@ -1,0 +1,57 @@
+[
+    {
+        "title": "Getting Started",
+        "child": [
+            {
+                "title": "Register as a buyer",
+                "des": "Join Trade4go  as a buyer.",
+                "href": "/help-center/buyer/user-guides/register"
+            },
+            {
+                "title": "Get access to Trade4go 's B2B Marketplace",
+                "des": "Become a verified buyer and add a product of interest to get access to Trade4go 's B2B Marketplace.",
+                "href": "/help-center/buyer/user-guides/verification"
+            }
+        ]
+    },
+    {
+        "title": "Sourcing for Products",
+        "child": [
+            {
+                "title": "Browse products",
+                "des": "Find what you're looking for in our comprehensive database of products and suppliers.",
+                "href": "/help-center/buyer/user-guides/browse-products"
+            },
+            {
+                "title": "Create RFQs",
+                "des": "Create RFQs for your sourcing requirements and directly receive quotes from suppliers.",
+                "href": "/help-center/buyer/user-guides/rfqs"
+            }
+        ]
+    },
+    {
+        "title": "Utilizing Feed",
+        "child": [
+            {
+                "title": "Create posts",
+                "des": "Start connecting and networking with other users on feed.",
+                "href": "/help-center/buyer/user-guides/posts"
+            },
+            {
+                "title": "Customize your feed",
+                "des": "Manage the content that appears on your feed.",
+                "href": "/help-center/buyer/user-guides/customize"
+            }
+        ]
+    },
+    {
+        "title": "Making Connections",
+        "child": [
+            {
+                "title": "Send messages",
+                "des": "Connect with other users through real-time chat.",
+                "href": "/help-center/buyer/user-guides/messages"
+            }
+        ]
+    }
+]
