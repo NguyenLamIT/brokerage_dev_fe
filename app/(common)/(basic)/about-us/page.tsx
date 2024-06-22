@@ -50,7 +50,7 @@ const dataFeedback = [
       position: "Export Manager at Al Foah, United Arab Emirates"
    }
 ];
-export const dataSolutions = [
+const dataSolutions = [
    { id: 1, name: "Exporter" },
    { id: 2, name: "Importer" },
    { id: 3, name: "Retailer" },
@@ -62,7 +62,7 @@ export const dataSolutions = [
 ];
 
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
    title: "About Us",
    description: "About Us"
 };
