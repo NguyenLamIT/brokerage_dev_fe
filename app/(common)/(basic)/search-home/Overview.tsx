@@ -141,7 +141,7 @@ const Overview = ({ data, countries, user }: any) => {
                             ?.slice(0, 4)
                             .map((pd: any, index: any) => {
                                 const country = countries.find(
-                                    (country: any) => country.code == pd.country?.name
+                                    (country: any) => country.code == pd.country?.code
                                 );
                                 return (
                                     <BuyerItem pd={pd} country={country} key={index} />
