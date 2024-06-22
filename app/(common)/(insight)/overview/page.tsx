@@ -118,7 +118,7 @@ const Overview = async () => {
             Featured
           </span>
 
-          <Link href={'/opinio/' + opinio[0]?.title_slug} target="_blank">
+          <Link href={`/${opinio[0]?.content_type.split('_').join('-').toLowerCase()}/` + opinio[0]?.title_slug} target="_blank">
             <div className="flex flex-col">
               <Image
                 src={opinio[0]?.thumbnail_url}
@@ -159,7 +159,7 @@ const Overview = async () => {
               </div>
             </div>
           </Link>
-          <Link href={'/opinio/' + opinio[1]?.title_slug} target="_blank">
+          <Link href={`/${opinio[1]?.content_type.split('_').join('-').toLowerCase()}/` + opinio[1]?.title_slug} target="_blank">
             <div className="flex flex-col">
               <Image
                 src={opinio[1]?.thumbnail_url}
@@ -169,7 +169,7 @@ const Overview = async () => {
                 className="w-full aspect-[3/1] object-cover"
               />
               <div className="py-[0.625rem]">
-                <Badge> {opinio[0].content_type.split('_').join(" ")}</Badge>
+                <Badge> {opinio[1].content_type.split('_').join(" ")}</Badge>
               </div>
               <p className="font-bold text-xl line-clamp-2  min-h-[3.5rem]">
                 {opinio[1].title}
@@ -202,7 +202,7 @@ const Overview = async () => {
           </Link>
         </div>
         <div className="col-span-3 flex flex-col justify-between">
-          <Link href={'/opinio/' + opinio[2]?.title_slug} target="_blank">
+          <Link href={`/${opinio[2]?.content_type.split('_').join('-').toLowerCase()}/` + opinio[2]?.title_slug} target="_blank">
             <div className="flex flex-col">
               <Image
                 src={opinio[2]?.thumbnail_url}
@@ -212,7 +212,7 @@ const Overview = async () => {
                 className="w-full aspect-[3.5] object-cover"
               />
               <div className="py-[0.625rem]">
-                <Badge> {opinio[0].content_type.split('_').join(" ")}</Badge>
+                <Badge> {opinio[2].content_type.split('_').join(" ")}</Badge>
               </div>
               <p className="font-bold text-xl line-clamp-2  min-h-[3.5rem]">
                 {opinio[2]?.title}
@@ -244,7 +244,7 @@ const Overview = async () => {
             </div>
           </Link>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[4.4375rem] pt-[3.1875rem]">
-            <Link href={'/weekly-product-update/' + groundUpdate[0]?.title_slug} target="_blank">
+            <Link href={`/${groundUpdate[0]?.content_type.split('_').join('-').toLowerCase()}/` + groundUpdate[0]?.title_slug} target="_blank">
               <div className="flex flex-col">
                 <div className="py-[0.625rem]">
                   <Badge> {groundUpdate[0].content_type.split('_').join(" ")}</Badge>
@@ -280,7 +280,7 @@ const Overview = async () => {
                 </div>
               </div>
             </Link>
-            <Link href={'/weekly-product-update/' + groundUpdate[1]?.title_slug} target="_blank">
+            <Link href={`/${groundUpdate[1]?.content_type.split('_').join('-').toLowerCase()}/` + groundUpdate[1]?.title_slug} target="_blank">
               <div className="flex flex-col">
                 <div className="py-[0.625rem]">
                   <Badge> {groundUpdate[1].content_type.split('_').join(" ")}</Badge>
