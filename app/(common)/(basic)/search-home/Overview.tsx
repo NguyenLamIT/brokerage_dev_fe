@@ -10,7 +10,6 @@ import Link from 'next/link';
 import React from 'react'
 
 const Overview = ({ data, countries, user }: any) => {
-    console.log(data);
     const { products, basic_supplier, insights, rfqs, buyers } = data;
 
     return (
@@ -28,7 +27,7 @@ const Overview = ({ data, countries, user }: any) => {
                             ?.slice(0, 6)
                             .map((pd: any, index: any) => {
                                 const country = countries.find(
-                                    (country: any) => country.code == pd.country?.name
+                                    (country: any) => country.code == pd.origin_country?.code
                                 );
                                 return (
                                     <ProductItem pd={pd} country={country} key={index} />
