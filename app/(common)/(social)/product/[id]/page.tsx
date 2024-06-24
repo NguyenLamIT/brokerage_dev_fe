@@ -68,14 +68,14 @@ const ProductDetail = async ({ params }: any) => {
       <div className="text-4xl pb-9 font-bold text-[#081440] flex gap-2 items-center">
         <Back /> Products
       </div>
-      <div className={`${product.galleries?.length==1?"flex justify-center w-full aspect-[3/1]":""}`}>
+      <div className={`${product.galleries?.length == 1 ? "flex justify-center w-full aspect-[3/1]" : ""}`}>
         <ListImage images={product.galleries} />
       </div>
       <div className="grid grid-cols-1  md:grid-cols-5 gap-14 relative pt-7 border-b border-gray-300  ">
         <div className="col-span-3 flex flex-col gap-10">
           <p className="text-4xl text-[#4A4A4A] font-bold">{product.name}</p>
           <p className="text-3xl text-[#908E8E]">{product.category_name}</p>
-          <div className="flex gap-5 items-center">
+          {/* <div className="flex gap-5 items-center">
             <Image
               src={product?.avatar}
               alt={supplier.name}
@@ -98,7 +98,7 @@ const ProductDetail = async ({ params }: any) => {
                 />
               </svg>
             </p>
-          </div>
+          </div> */}
           {!Array.isArray(product.detail) && (
             <div className="pb-10 flex flex-col gap-4">
               <p className="text-3xl font-bold text-[#404040] pb-4">
@@ -163,7 +163,12 @@ const ProductDetail = async ({ params }: any) => {
             <p className="text-3xl font-bold text-[#404040]  pb-4">
               About the Supplier
             </p>
-            <div className="flex gap-5 items-center">
+            <Link href={
+              "/supplier/" +
+              supplier.name.split(" ").join("-") +
+              "-i." +
+              supplier.code
+            } className="flex gap-5 items-center">
               <Image
                 src={supplier.avatar}
                 alt={supplier.name}
@@ -196,7 +201,7 @@ const ProductDetail = async ({ params }: any) => {
                   <p>{supplier.product_count} Products</p>
                 </div>
               </div>
-            </div>
+            </Link>
             <table className="border-separate border-spacing-1 w-full">
               <tbody>
                 {supplier.company_detail &&
@@ -235,7 +240,7 @@ const ProductDetail = async ({ params }: any) => {
                     <TableHead>Last Reported Date</TableHead>
                     <TableHead>Price Type</TableHead>
                   </TableRow>
-                  </TableHeader>
+                </TableHeader>
                 <TableBody className="text-lg">
                   {price_per_country.map((ppc: any, index: any) => (
                     <TableRow key={index}>
@@ -263,7 +268,7 @@ const ProductDetail = async ({ params }: any) => {
               Seasonality Data
             </p>
             <div className="md:px-14 flex flex-col gap-16 ">
-            {seasonality_data?.length > 0 ? (
+              {seasonality_data?.length > 0 ? (
                 seasonality_data.map((seasonality: any, index: any) => {
                   const country = countries.find(
                     (country) => country.code == seasonality.country.code
@@ -356,7 +361,7 @@ const ProductDetail = async ({ params }: any) => {
                         </div>
                       </div>
                     </div>
-                    </Link>
+                  </Link>
                 ))}
               </div>
             ) : (
@@ -399,7 +404,7 @@ const ProductDetail = async ({ params }: any) => {
           <p className="text-3xl font-bold text-[#404040]  pb-4">
             Other products from the supplier
           </p>
-          <Link href={"/product?supplier_code=" + suggest_product_list[0].supplier_code}>View All</Link>
+          <Link href={"/product?supplier_code=" + suggest_product_list[0]?.supplier_code}>View All</Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {suggest_product_list?.length > 0 ? suggest_product_list.slice(0, 4).map((pd: any) => {
