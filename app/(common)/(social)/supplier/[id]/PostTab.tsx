@@ -19,7 +19,7 @@ const PostTab = async ({ user, id }: any) => {
                     <PostSocial user={user} dt={dt} key={index} />
                 )) : (
                     <div className="text-lg text-[#8C8585]">
-                        There are no product to be shown yet.
+                        There is no data to be shown yet.
                     </div>
                 )}
                 <LoadMorePost

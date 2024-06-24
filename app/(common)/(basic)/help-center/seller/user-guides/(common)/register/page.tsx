@@ -41,8 +41,7 @@ const Register = () => {
             process.
           </li>
           <li className="pl-4">
-            Once sign up is complete, you must publish a basic supplier profile,
-            or become a premium supplier. Refer to the guides below to learn
+            Once sign up is complete, you must publish a basic supplier profile. Refer to the guides below to learn
             more.
             <div className="pt-2">
               <Link

@@ -9,7 +9,7 @@ const Customize = () => {
             <h2 className="pt-10 pb-6 ">Choose who to follow</h2>
             Since posts of users that you follow are prioritized on your feed, customize your feed by selecting who to follow.
             <div className="pt-6">To follow users, just click <span className="font-medium  ">Follow</span> on their user cards, found on either their profile page or on posts on feed.</div>
-            <div className="pt-6">To view your following and followers list, go to <Link color="primary" className="text-blue-800"   href="/buyer/profile">Company Workspace - Profile</Link>.</div>
+            <div className="pt-6">To view your following and followers list, go to <Link color="primary" className="text-blue-800"   href="/social/buyer-profile?type=posts">Company Workspace - Profile</Link>.</div>
         </div>
     )
 }

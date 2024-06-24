@@ -9,19 +9,19 @@ const Verification = () => {
       <div className="pb-6">After <Link color="primary" className="text-blue-800" href="/help-center/buyer/user-guides/register">registering as a buyer</Link>, you need to fulfill two requirements to participate in Trade4go 's B2B Marketplace:</div>
       <ol className="list-decimal text-xl flex flex-col gap-2 px-6">
         <li className="pl-4">Become a verified buyer by uploading your business documents.</li>
-        <li className="pl-4">Add at least one product of interest to your <Link color="primary" className="text-blue-800" href="/buyer/profile">Profile</Link>.</li>
+        <li className="pl-4">Add at least one product of interest to your <Link color="primary" className="text-blue-800" href="/social/buyer-profile?type=overview">Profile</Link>.</li>
       </ol>
       <div className="pt-6">Refer to the guides below to learn more.</div>
       <h2 className="pt-10 pb-6 ">How to become a verified buyer</h2>
       You may become a verified buyer by creating an account with a Trade4go -verified work email. Otherwise, you need to upload a specified business document and get verified to participate in the platform. The verification process is conducted by Trade4go  and is free of charge.
       <div className="pt-6 pb-2">How to become a verified buyer:</div>
       <ol className="list-decimal text-xl flex flex-col gap-2 px-6">
-        <li className="pl-4">Go to your <Link className="text-blue-800" href="/settings/verification">Settings</Link> and click <span className="font-medium">Company Verification</span> tab.</li>
+        <li className="pl-4">Go to your <Link className="text-blue-800" href="/my-account">My account</Link> and click <span className="font-medium">Company Verification</span> tab.</li>
         <li className="pl-4">Upload your company’s business registration certificate or your name card for review. Click <span className="font-medium">Submit for review</span>.</li>
         <li className="pl-4">The review process may take up to 72 hours. Please wait for an email regarding the approval of your business documents.</li>
         <li className="pl-4">If your business documents are rejected, this means that Trade4go  was unable to verify the documents as certified or that the documents did not match your company information. Please follow any instructions provided in the email and re-upload your documents after making the appropriate changes.</li>
       </ol>
-      <div className="pt-6 flex justify-center"><Image width={1200} height={600} className='md:w-2/3 h-auto' src="https://cdn-new.tridge.com/assets/352EGEL6.png" alt="image" /></div>
+      <div className="pt-6 flex justify-center"><Image width={1200} height={600} className='md:w-2/3 h-auto' src="/images/guide/verication.PNG" alt="image" /></div>
       <h2 className="pt-10 pb-6 ">Requirements for a valid business registration certificate</h2>
       <div className="pb-2">To ensure that your business registration certificate is approved, please make sure that your document meets the required conditions specified below:</div>
       <ul className="list-disc flex flex-col gap-2 px-8">
@@ -43,7 +43,7 @@ const Verification = () => {
       <h2 className="pt-10 pb-6 ">How to add a product of interest</h2>
       <div className="pb-6">Please follow the steps below to participate in Trade4go 's B2B Marketplace as a buyer.</div>
       <ol className="list-decimal text-xl flex flex-col gap-2 px-6">
-        <li className="pl-4">Go to your <Link color="primary" className="text-blue-800" href="/buyer/profile">Company Workspace</Link> and click <span className="font-medium">Profile</span>.</li>
+        <li className="pl-4">Go to your <Link color="primary" className="text-blue-800" href="/social/buyer-profile?type=overview">Company Workspace</Link> and click <span className="font-medium">Profile</span>.</li>
         <li className="pl-4">In the <span className="font-medium">Products</span> section, click the <span className="font-medium">Add</span> button.</li>
         <li className="pl-4">Select your product of interest, then add your preferred sourcing countries and detailed specifications.</li>
       </ol>
@@ -63,10 +63,8 @@ const Verification = () => {
       <div className="pt-6">You may now start sourcing for products and connecting with other users. Refer to the guides below to learn more.</div>
       <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/buyer/user-guides/browse-products">Browse products</Link></div>
       <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/buyer/user-guides/rfqs">Create RFQs</Link></div>
-      <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/buyer/user-guides/trade-assist">Request Trade Assist</Link></div>
       <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/buyer/user-guides/posts">Create posts</Link></div>
       <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/buyer/user-guides/customize">Customize your feed</Link></div>
-      <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/buyer/user-guides/endorsements">Submit endorsements</Link></div>
     </div>
   )
 }

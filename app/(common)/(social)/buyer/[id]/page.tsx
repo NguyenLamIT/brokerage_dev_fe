@@ -220,7 +220,7 @@ const BuyerDetail = async ({ params, searchParams }: any) => {
                     ))
                   ) : (
                     <div className="text-lg text-[#8C8585]">
-                      There are no product to be shown yet.
+                      There is no data to be shown yet.
                     </div>
                   )}
                 </div>
@@ -378,7 +378,7 @@ const BuyerDetail = async ({ params, searchParams }: any) => {
                     ))
                   ) : (
                     <div className="text-lg text-[#8C8585]">
-                      There are no product to be shown yet.
+                      There is no data to be shown yet.
                     </div>
                   )}
                 </div>
@@ -428,7 +428,7 @@ const BuyerDetail = async ({ params, searchParams }: any) => {
                   ))
                 ) : (
                   <div className="text-lg text-[#8C8585]">
-                    There are no product to be shown yet.
+                    There is no data to be shown yet.
                   </div>
               )}
             </div>

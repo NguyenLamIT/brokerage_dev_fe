@@ -14,10 +14,6 @@ export const faqGeneral = [
     {
        question: "How can I customize my feed?",
        answer: "You can personalize your feed by following products or following other users. Visit the Following products page to add your following products. To follow other users, click Follow on their user card."
-    },
-    {
-       question: "I encountered disturbing contents on my feed. How can I report it?",
-       answer: "You may report disturbing contents on the feed by clicking the View More icon on the right side of the post. Click Report and select the reason why you want to report the post’s contents. Leave a remark for any more details you want to deliver to the Tridge team. Click Submit and our team will review the contents and take the appropriate actions."
     }
  ];
  
@@ -25,10 +21,6 @@ export const faqGeneral = [
     {
        question: "What are verification details?",
        answer: "Verification details are additional information that you can refer to further validate the company’s identity firsthand. Verification details consist of basic sources such as company website, SNS account, and business registration number, which are open for inspection. Verification details also includes information about what types of documents the company submitted for review. The documents reviewed section will only show documents that have been submitted and thus approved after reviewed directly by our staff. However, please always remember to use your best judgement before engaging in a business deal."
-    },
-    {
-       question: "I encountered a technical error during a video call. How can I troubleshoot video call errors?",
-       answer: "If you encounter a technical error during a video call please try to refresh the meeting page first as it might be due to an internet connection issue. If the meeting page still shows an error, please report the error through contact support."
     },
     {
        question: "Where can I see the RFQs that I created and whether or not I received any quotes from suppliers?",

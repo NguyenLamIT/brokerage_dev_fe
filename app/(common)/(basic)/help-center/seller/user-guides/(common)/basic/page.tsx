@@ -7,11 +7,11 @@ const Basic = () => {
         <div className='text-xl'>
             <h2 className="pt-10 pb-6 ">Introduction</h2>
             <span className="">After <Link color="primary" className="text-blue-800" href="/help-center/seller/user-guides/register">registering as a supplier</Link>, the next step is to publish your supplier profile.</span>
-            <div className="pt-6"><span className="">Start by going to <Link color="primary" className="text-blue-800" href="/seller/profile/basic">Company Workspace - Profile</Link> and click the <span className="font-medium">Basic</span> tab.</span></div>
+            <div className="pt-6"><span className="">Start by going to <Link color="primary" className="text-blue-800" href="/company-information">Profile</Link> and click the <span className="font-medium">Company information</span> tab.</span></div>
             <div className="pt-6 pb-2">To publish a basic supplier profile, you need to fulfill two requirements:</div>
             <ol className="list-decimal text-xl flex flex-col gap-2 px-6">
                 <li className="pl-4">Get verified by uploading your business documents.</li>
-                <li className="pl-4">Upload at least one product.</li>
+                <li className="pl-4">Upload at least one product at <Link color="primary" className="text-blue-800" href="/social/company-profile?type=overview">Company profile</Link>.</li>
             </ol>
             <div className="pt-6"><span className="">The banner at the top will display your status in meeting these requirements.</span></div>
             <h2 className="pt-10 pb-6 ">Get verified</h2>
@@ -22,13 +22,12 @@ const Basic = () => {
             </span>
             <div className="pt-6 pb-2">How to upload your business documents:</div>
             <ol className="list-decimal text-xl flex flex-col gap-2 px-6">
-                <li className="pl-4">Go to your <Link color="primary" className="text-blue-800" href="/settings/verification">Settings</Link> and click <span className="font-medium">Company Verification</span> tab.</li>
+                <li className="pl-4">Go to your <Link color="primary" className="text-blue-800" href="/my-account">My account</Link> and click <span className="font-medium">Company Verification</span> tab.</li>
                 <li className="pl-4">Upload your company’s business registration certificate or your name card for review. Click <span className="font-medium">Submit for review</span>.</li>
                 <li className="pl-4">The review process may take up to 72 hours. Please wait for an email regarding the approval of your business documents.</li>
                 <li className="pl-4">If your business documents are rejected, this means that Trade4go  was unable to verify the documents as certified or that the documents did not match your company information. Please follow any instructions provided in the email and re-upload your documents after making the appropriate changes.</li>
                 <li className="pl-4">Once your business documents are approved and a product is uploaded, your profile will be published.</li>
             </ol>
-            <div className="pt-6 flex justify-center"><Image width={1200} height={600} className='md:w-2/3 h-auto' src="https://cdn-new.tridge.com/assets/ZP4G2LBO.png" alt="image" /></div>
             <h2 className="pt-10 pb-6 ">Requirements for a valid business registration certificate</h2>
             <div className="pb-2">To ensure that your business registration certificate is approved, please make sure that your document meets the required conditions specified below:</div>
             <ul className="list-disc flex flex-col gap-2 px-8">
@@ -65,9 +64,6 @@ const Basic = () => {
             </div>
             <div className="pt-6"><span className="">Note: Ensure your products stand out by providing comprehensive details. <span className="font-medium">The more information you provide, the higher your product will rank</span>, increasing the chances of connecting with potential buyers. Upload photos of your product and fill in the optional fields to maximize your exposure.</span></div>
             <div className="py-6"><span className="">Once you have completed uploading a product, a checkmark will be displayed in the top banner indicating that you have completed this step.</span></div>
-            <div className=' flex justify-center'>
-                <Image width={1200} height={600} className='md:w-2/3 h-auto' src="https://cdn-new.tridge.com/assets/W6RXLSZN.png" alt="image" />
-            </div>
             <h2 className="pt-10 pb-6 ">Add profile information</h2>
             <span className="">Once your profile is published, buyers will be able to search for and view your profile, and send you messages.</span>
             <div className="pt-6 pb-2">To be recognized as a trustworthy supplier, we recommend adding the following to your profile details:</div>
@@ -89,10 +85,6 @@ const Basic = () => {
                     </ol>
                 </li>
                 <li className="">Our People: The members of your company will be visible in this section. For each company representative, you may choose to add additional information such as a user profile picture, official designation, and a short intro message (Note: Other verified users may follow, and message your company and your representatives through the <span className="font-medium">Send Message</span> or <span className="font-medium">Follow</span> buttons.)</li>
-                <li className="">Facilities</li>
-                <li className="">Export History</li>
-                <li className="">Trade Show Experience</li>
-                <li className="">Track Records</li>
             </ul>
             <div className="pt-6"><span color="onSurfaceSubtle" className="  ">Note: Enhance your profile's visibility by offering detailed information. The more details you provide, the higher your profile will rank, boosting your chances of connecting with potential buyers. Upload comprehensive details about your company, including photos and videos, to maximize your exposure.</span></div>
             <h2 className="pt-10 pb-6 ">Start participating in Trade4go 's B2B Marketplace</h2>
@@ -101,8 +93,6 @@ const Basic = () => {
             <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/seller/user-guides/receive">Receive messages</Link></div>
             <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/seller/user-guides/posts">Create posts</Link></div>
             <div className="pt-2"><Link color="primary" className="text-blue-800" href="/help-center/seller/user-guides/customize">Customize your feed</Link></div>
-            <div className="pt-2 pb-6"><Link color="primary" className="text-blue-800" href="/help-center/seller/user-guides/endorsements">Submit endorsements</Link></div>
-            <span className="">Sending messages, scheduling online meetings, and accessing Analytics are only available to premium Users. To learn more about Premium plan, go to <Link color="primary" className="text-blue-800" href="/about/trade-solution-pricing">Trade Solution plan</Link>.</span>
         </div>
     )
 }

@@ -24,7 +24,7 @@ const PostTab = async ({ id, user }: any) => {
                     ))
                 ) : (
                     <div className="text-lg text-[#8C8585]">
-                        There are no product to be shown yet.
+                        There is no data to be shown yet.
                     </div>
                 )}
                 <LoadMorePost id={id} user={user} length={posts_list.length} total={total_post} type="BUYER" />

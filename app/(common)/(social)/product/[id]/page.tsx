@@ -68,7 +68,7 @@ const ProductDetail = async ({ params }: any) => {
       <div className="text-4xl pb-9 font-bold text-[#081440] flex gap-2 items-center">
         <Back /> Products
       </div>
-      <div className={`${product.galleries?.length == 1 ? "flex justify-center w-full aspect-[3/1]" : ""}`}>
+      <div className={`${product.galleries?.length==1?"flex justify-center w-full aspect-[3/1]":""}`}>
         <ListImage images={product.galleries} />
       </div>
       <div className="grid grid-cols-1  md:grid-cols-5 gap-14 relative pt-7 border-b border-gray-300  ">
@@ -240,7 +240,7 @@ const ProductDetail = async ({ params }: any) => {
                     <TableHead>Last Reported Date</TableHead>
                     <TableHead>Price Type</TableHead>
                   </TableRow>
-                </TableHeader>
+                  </TableHeader>
                 <TableBody className="text-lg">
                   {price_per_country.map((ppc: any, index: any) => (
                     <TableRow key={index}>
@@ -259,7 +259,7 @@ const ProductDetail = async ({ params }: any) => {
               </Table>
             ) : (
               <div className="text-lg text-[#8C8585]">
-                There are no product to be shown yet.
+                There is no data to be shown yet.
               </div>
             )}
           </div>
@@ -268,7 +268,7 @@ const ProductDetail = async ({ params }: any) => {
               Seasonality Data
             </p>
             <div className="md:px-14 flex flex-col gap-16 ">
-              {seasonality_data?.length > 0 ? (
+            {seasonality_data?.length > 0 ? (
                 seasonality_data.map((seasonality: any, index: any) => {
                   const country = countries.find(
                     (country) => country.code == seasonality.country.code
@@ -315,7 +315,7 @@ const ProductDetail = async ({ params }: any) => {
                 })
               ) : (
                 <div className="text-lg text-[#8C8585]">
-                  There are no product to be shown yet.
+                  There is no data to be shown yet.
                 </div>
               )}
             </div>
@@ -361,12 +361,12 @@ const ProductDetail = async ({ params }: any) => {
                         </div>
                       </div>
                     </div>
-                  </Link>
+                    </Link>
                 ))}
               </div>
             ) : (
               <div className="text-lg text-[#8C8585]">
-                There are no product to be shown yet.
+                There is no data to be shown yet.
               </div>
             )}
           </div>
@@ -404,7 +404,7 @@ const ProductDetail = async ({ params }: any) => {
           <p className="text-3xl font-bold text-[#404040]  pb-4">
             Other products from the supplier
           </p>
-          <Link href={"/product?supplier_code=" + suggest_product_list[0]?.supplier_code}>View All</Link>
+          {suggest_product_list?.length > 0 && <Link href={"/product?supplier_code=" + suggest_product_list[0].supplier_code}>View All</Link> }
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {suggest_product_list?.length > 0 ? suggest_product_list.slice(0, 4).map((pd: any) => {
@@ -416,7 +416,7 @@ const ProductDetail = async ({ params }: any) => {
             );
           }) : (
             <div className="text-lg text-[#8C8585]">
-              There are no product to be shown yet.
+              There is no data to be shown yet.
             </div>
           )}
         </div>

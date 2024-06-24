@@ -19,7 +19,7 @@ const RfqTab = async ({ id, user }: any) => {
                 <RFQItem key={rfq.code} dt={rfq} user={user} />
             )) : (
                 <div className="text-lg text-[#8C8585]">
-                    There are no product to be shown yet.
+                    There is no data to be shown yet.
                 </div>
             )}
             <LoadMoreRFQ id={id} length={rfqs.length} total={total_rfq} user={user} />

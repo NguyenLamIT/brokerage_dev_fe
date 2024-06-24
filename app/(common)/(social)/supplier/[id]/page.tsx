@@ -43,7 +43,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
   const idPart = params.id.split("-i.");
   const id = idPart[idPart.length - 1];
   const type = searchParams?.type;
-  const [countryData] = await Promise.all([
+  const [ countryData] = await Promise.all([
     getRequest("/config/countries"),
   ]);
   const countries: any[] = countryData?.data;
@@ -307,9 +307,9 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                         </video>
                       )}
                     </div>
-                  )) : (
+                   )) : (
                     <div className="text-lg text-[#8C8585]">
-                      There are no product to be shown yet.
+                      There is no data to be shown yet.
                     </div>
                   )}
                 </div>
@@ -394,7 +394,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                   Representatives
                 </p>
                 <div className="grid lg:grid-cols-2 gap-16">
-                  {representative?.length > 0 ? representative.map((re: any, index: any) => (
+                {representative?.length > 0 ? representative.map((re: any, index: any) => (
                     <div
                       key={index}
                       className="flex flex-col gap-4 border border-gray-300 p-3 rounded-md"
@@ -430,7 +430,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                     </div>
                   )) : (
                     <div className="text-lg text-[#8C8585]">
-                      There are no product to be shown yet.
+                      There is no data to be shown yet.
                     </div>
                   )}
 
@@ -471,7 +471,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                   <p className="text-3xl font-bold">Why Us?</p>
                 </div>
                 <div className="flex flex-col gap-14">
-                  {supplier?.why_us?.length > 0 ?
+                {supplier?.why_us?.length > 0 ?
                     supplier.why_us.map((e: any, index: any) => {
                       return (
                         <div
@@ -489,14 +489,14 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                       );
                     }) : (
                       <div className="text-lg text-[#8C8585]">
-                        There are no product to be shown yet.
+                        There is no data to be shown yet.
                       </div>
                     )}
                 </div>
               </div>
             ) : type == "posts" ? (
               <div className="col-span-2">
-                <PostTab user={user} id={id} />
+                <PostTab  user={user} id={id} />
               </div>
             ) : (
               <div className="col-span-2">
@@ -508,7 +508,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
               <p className="text-3xl font-bold">Contact Supplier</p>
               <p className="text-lg text-[#ACADAF]">Representative</p>
               <div className="flex flex-col gap-6">
-                {representative?.length > 0 ?
+               {representative?.length > 0 ?
                   representative?.map((re: any, index: any) => (
                     <div
                       className="flex flex-col gap-3"
@@ -535,11 +535,11 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                       <div className="flex flex-col gap-1">
                         <SendMessage user={re} />
                         {/* <Button variant={"outline"}>Book a Meeting</Button> */}
-                      </div>
                     </div>
+                  </div>
                   )) : (
                     <div className="text-lg text-[#8C8585]">
-                      There are no product to be shown yet.
+                      There is no data to be shown yet.
                     </div>
                   )}
               </div>

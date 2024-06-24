@@ -19,7 +19,7 @@ const Posts = () => {
             </ol>
             <div className="pt-2">You can edit or delete your comment by clicking the <span className="font-medium">View More</span> icon at the top right corner of your comment.</div>
             <h2 className="pt-10 pb-6 ">Where to see my posts</h2>
-            <span className="">View and edit all your posts in the <Link color="primary" className="text-blue-800"  href="/buyer/profile">Profile</Link> page in your <Link color="primary" className="text-blue-800"  href="/buyer/profile">Company Workspace</Link>.</span>
+            <span className="">View and edit all your posts in the posts tab in your <Link color="primary" className="text-blue-800"  href="/social/buyer-profile?type=posts">Company Workspace</Link>.</span>
         </div>
     )
 }

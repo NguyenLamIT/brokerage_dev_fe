@@ -30,12 +30,11 @@ const Rfqs = () => {
             <h2 className="pt-10 pb-6 ">How to view and select quotes from suppliers</h2>
             Once RFQs are created, suppliers may respond to your request and submit quotes.
             <div className="pt-6"><span className="">To view quotes you've received, go to the <Link color="primary" className="text-blue-800" href="/buyer/sourcing-requests">RFQs</Link> page under <span className="font-medium">Company Workspace</span>.</span></div>
-            <div className="pt-6  flex justify-center"><Image  width={1200} height={600} className='md:w-2/3 h-auto' src="https://cdn-new.tridge.com/assets/2JRUUMCI.png" alt="image" /></div>
+            <div className="pt-6  flex justify-center"><Image  width={1200} height={600} className='md:w-2/3 h-auto' src="/images/guide/rfq_buyer.PNG" alt="image" /></div>
             <div className="pt-6 pb-2">To view the contact information of suppliers who submitted quotes:</div>
             <ol className="list-decimal text-xl flex flex-col gap-2 px-6">
-                <li className="pl-4">Review the information in the request detail page or you may also click <span className="font-medium">Download CSV</span> to get a CSV file with the complete quote details.</li>
-                <li className="pl-4">To get in touch with a supplier, select the quote you want to proceed with.</li>
-                <li className="pl-4">Click <span className="font-medium">Reveal Supplier Info</span> to get access to their contact details.</li>
+                <li className="pl-4">Click to the detail of rfq.</li>
+                <li className="pl-4">In RFQ Submited Quotes List you can go to the supplier and contact the person.</li>
             </ol>
             <h2 className="pt-10 pb-6 ">What happens when the RFQ is closed</h2>
             RFQs are only valid for 30 days. Once RFQs expire, all supplier information will be revealed even if you didn’t have the chance to select and reveal supplier information.
