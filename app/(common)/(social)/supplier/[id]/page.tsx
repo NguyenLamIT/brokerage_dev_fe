@@ -43,7 +43,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
   const idPart = params.id.split("-i.");
   const id = idPart[idPart.length - 1];
   const type = searchParams?.type;
-  const [ countryData] = await Promise.all([
+  const [countryData] = await Promise.all([
     getRequest("/config/countries"),
   ]);
   const countries: any[] = countryData?.data;
@@ -229,66 +229,65 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                   <div className="pb-20 flex flex-col gap-4">
                     <div className="flex justify-between items-center">
                       <p className="text-3xl font-bold">Products</p>
-                    {suggest_product_list?.length > 0 && (
-                      <Link
-                        href={"?type=products"}
-                        className="flex gap-2 items-center"
-                      >
-                        View all{" "}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-4 h-4"
+                      {suggest_product_list?.length > 0 && (
+                        <Link
+                          href={"?type=products"}
+                          className="flex gap-2 items-center"
                         >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                          />
-                        </svg>
-                      </Link>
-                    )}
+                          View all{" "}
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-4 h-4"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                            />
+                          </svg>
+                        </Link>
+                      )}
                     </div>
                     {suggest_product_list.length > 0 ? (
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-                      {suggest_product_list.slice(0, 4).map((pd: any) => (
-                        <Link
-                          href={
-                            "/product/" +
-                            pd.name.split(" ").join("-") +
-                            "-i." +
-                            pd.code
-                          }
-                          key={pd.code}
-                          className="flex flex-col gap-2 border border-gray-200 rounded-lg p-2"
-                        >
-                          <Image
-                            src={pd.avatar}
-                            alt={pd.name}
-                            width={288}
-                            height={288}
-                            className="w-full aspect-square  object-cover"
-                          />
-                          <p className="text-xl font-semibold break-all line-clamp-2">
-                            {pd.name}
-                          </p>
-                          <p className="text-xs font-semibold text-gray-700">
-                            Processed Style: {pd.summary["PROCESSED STYLE"]}
-                          </p>
-                          <p className="text-xs font-semibold text-gray-700">
-                            Variety: {pd.summary["VARIETY"]}
-                          </p>
-                        </Link>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="text-lg text-[#8C8585]">
-                      There are no product to be shown yet.
-                    </div>
-                  )}
+                      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+                        {suggest_product_list.slice(0, 4).map((pd: any) => (
+                          <Link
+                            href={
+                              "/product/" +
+                              pd.name.split(" ").join("-") +
+                              "-i." +
+                              pd.code
+                            }
+                            key={pd.code}
+                            className="flex flex-col gap-2 border border-gray-200 rounded-lg p-2"
+                          >
+                            <Image
+                              src={pd.avatar}
+                              alt={pd.name}
+                              width={288}
+                              height={288}
+                              className="w-full aspect-square  object-cover"
+                            />
+                            <p className="text-xl font-semibold break-all line-clamp-2">
+                              {pd.name}
+                            </p>
+                            <p className="font-[650] text-[0.95rem] text-base text-gray-700 line-clamp-2 min-h-[3rem]">
+                              {Object.keys(pd.summary)
+                                .map((key: any) => `${key}: ${pd.summary[key]}`)
+                                .join(", ")}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-lg text-[#8C8585]">
+                        There are no product to be shown yet.
+                      </div>
+                    )}
                   </div>
                 )}
                 <div className="pb-20 flex flex-col gap-4">
@@ -308,7 +307,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                         </video>
                       )}
                     </div>
-                   )) : (
+                  )) : (
                     <div className="text-lg text-[#8C8585]">
                       There are no product to be shown yet.
                     </div>
@@ -395,7 +394,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                   Representatives
                 </p>
                 <div className="grid lg:grid-cols-2 gap-16">
-                {representative?.length > 0 ? representative.map((re: any, index: any) => (
+                  {representative?.length > 0 ? representative.map((re: any, index: any) => (
                     <div
                       key={index}
                       className="flex flex-col gap-4 border border-gray-300 p-3 rounded-md"
@@ -472,7 +471,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                   <p className="text-3xl font-bold">Why Us?</p>
                 </div>
                 <div className="flex flex-col gap-14">
-                {supplier?.why_us?.length > 0 ?
+                  {supplier?.why_us?.length > 0 ?
                     supplier.why_us.map((e: any, index: any) => {
                       return (
                         <div
@@ -497,7 +496,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
               </div>
             ) : type == "posts" ? (
               <div className="col-span-2">
-                <PostTab  user={user} id={id} />
+                <PostTab user={user} id={id} />
               </div>
             ) : (
               <div className="col-span-2">
@@ -509,7 +508,7 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
               <p className="text-3xl font-bold">Contact Supplier</p>
               <p className="text-lg text-[#ACADAF]">Representative</p>
               <div className="flex flex-col gap-6">
-               {representative?.length > 0 ?
+                {representative?.length > 0 ?
                   representative?.map((re: any, index: any) => (
                     <div
                       className="flex flex-col gap-3"
@@ -536,8 +535,8 @@ const SupplierDetail = async ({ params, searchParams }: any) => {
                       <div className="flex flex-col gap-1">
                         <SendMessage user={re} />
                         {/* <Button variant={"outline"}>Book a Meeting</Button> */}
+                      </div>
                     </div>
-                  </div>
                   )) : (
                     <div className="text-lg text-[#8C8585]">
                       There are no product to be shown yet.
