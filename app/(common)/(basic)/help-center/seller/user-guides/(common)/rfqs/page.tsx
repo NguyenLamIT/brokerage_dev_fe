@@ -11,7 +11,7 @@ const Rfqs = () => {
             <h2 className="pt-10 pb-6">How to find RFQs</h2>
             <div className="pb-2">Find RFQs in the following locations:</div>
             <ul className="list-disc flex flex-col gap-2 px-8">
-                <li className="">Menu MarketPlace -> RFQs</li>
+                <li className="">Menu MarketPlace -&gt; RFQs</li>
                 <li className="">Enter keyword then hit enter</li>
             </ul>
             <div className="pt-6">You will receive emails based on the products you've uploaded on your profile. Upload all products that you supply to receive notifications for all relevant RFQs.</div>
