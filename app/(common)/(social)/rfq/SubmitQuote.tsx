@@ -176,7 +176,7 @@ const SubmitQuote = (props: any) => {
         Submit Quote
       </Button>
       <DialogContent className="!max-w-[80%] xl:!max-w-[30%] p-0">
-        {user?.role == "BUYER" ? (
+        {user?.role != "BUYER" ? (
           <div className="p-6">
             <p className="text-xl font-bold">Submit Quote</p>
             <Form {...form}>
@@ -492,7 +492,7 @@ const SubmitQuote = (props: any) => {
               className="w-16 h-16 object-contain"
             />
             <div>
-              <p className='font-semibold'>You need to switch to buyer</p>
+              <p className='font-semibold'>You need to switch to supplier</p>
             </div>
             <div className="flex items-start h-full">
               <DialogClose><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

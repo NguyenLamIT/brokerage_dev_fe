@@ -8,6 +8,7 @@ import Overview from "./overview";
 import Posts from "./posts";
 import ProductTab from "./products-tabs";
 import CertificateTab from "./certificate-tab";
+import QuotesTab from "./quotes";
 
 const Common = ({ user }: any) => {
   const [type, setType] = useState("");
@@ -24,6 +25,10 @@ const Common = ({ user }: any) => {
     {
       name: "Product",
       type: "product",
+    },
+    {
+      name: "Quotes List",
+      type: "quotes-list",
     },
     {
       name: "Certification",
@@ -51,6 +56,8 @@ const Common = ({ user }: any) => {
         return <Posts />;
       case "product":
         return <ProductTab />;
+      case "quotes-list":
+        return <QuotesTab />;
       case "certification":
         return <CertificateTab certifications={certifications} setCertifications={setCertifications} />;
       default:
@@ -102,7 +109,7 @@ const Common = ({ user }: any) => {
           alt={user?.last_name}
           width={245}
           height={245}
-          className="w-full md:w-60"/>
+          className="w-full md:w-60" />
         <div>
           <div className="text-4xl text-primary font-bold">
             {user?.company.name}
